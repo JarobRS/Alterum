@@ -34,7 +34,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //////////////////////////////// Design ///////////////////////////////////////
+        //////////////////////////////// Design ////////////////////////////////////////
         primaryStage.setTitle("Title of the Window");
         button1 = new Button();
         button1.setText("Button!");
@@ -46,7 +46,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         Scene scene1 = new Scene(layout1, 300, 250);
         primaryStage.setScene(scene1);
         primaryStage.show();
-        //////////////////////////// End of Design ////////////////////////////////////
+        //////////////////////////// End of Design /////////////////////////////////////
 
         HttpClient httpClient = HttpClientBuilder.create().build();
         HttpPost httpPost = new HttpPost(api_url + "wall.get?" +
