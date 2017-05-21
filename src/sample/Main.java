@@ -1,10 +1,12 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -20,12 +22,13 @@ public class Main extends Application {
     private Stage window;
     Scene mainScene, sources;
 
-    Label label1 = new Label("Greetings!");
-    Label label2 = new Label("Sources");
-    Button button1 = new Button("Post HTTP request");
-    Button button2 = new Button("Check the sources list");
-    Button button3 = new Button("Back");
-    Button button4 = new Button("Info");
+    private TextArea HTTPanswer = new TextArea();
+    private TextArea domainInput = new TextArea();
+    private Label label2 = new Label("Sources");
+    private Button button1 = new Button("Request data");
+    private Button button2 = new Button("Sources list");
+    private Button button3 = new Button("Back");
+    private Button button4 = new Button("License info");
 
     public static void main(String[] args) {
         launch(args);
@@ -36,18 +39,41 @@ public class Main extends Application {
         window = primaryStage;
 
         button1.setOnAction(e -> {
-            label1.setText(getData("kosmoshturm", 1));
+            if (getDomain(domainInput.getText()) != null) {
+                HTTPanswer.setText(getData(getDomain(domainInput.getText()), 1));
+            } else {
+                domainInput.clear();
+                domainInput.setPromptText("Введена некорректная строка!");
+            }
         });
         button2.setOnAction(e -> window.setScene(sources));
-        button3.setOnAction(e -> {
-            window.setScene(mainScene);
-            label1.setText("Greetings!");
-        });
+        button3.setOnAction(e -> window.setScene(mainScene));
         button4.setOnAction(e -> alertBox.display("License", "THE SOFTWARE IS PROVIDED \"AS IS\""));
+        domainInput.setOnMouseClicked(e -> domainInput.setPromptText("https://vk.com/sci_hub"));
 
-        VBox layout1 = new VBox(10);
-        layout1.getChildren().addAll(label1, button1, button2,button4);
-        mainScene = new Scene(layout1, 400, 350);
+        domainInput.setPromptText("https://vk.com/sci_hub");
+        domainInput.setMaxHeight(10);
+        HTTPanswer.setWrapText(true);
+        HTTPanswer.setMinHeight(320);
+
+        VBox centerMenu = new VBox();
+        VBox leftMenu = new VBox();
+        centerMenu.getChildren().addAll(domainInput, HTTPanswer);
+        leftMenu.getChildren().addAll(button1, button2, button4);
+
+        BorderPane borderPane = new BorderPane();
+        borderPane.setCenter(centerMenu);
+        borderPane.setLeft(leftMenu);
+
+        GridPane mainGrid = new GridPane();
+        mainGrid.setPadding(new Insets(10, 10, 10, 10));
+        mainGrid.setVgap(8);
+        mainGrid.setHgap(10);
+        GridPane.setConstraints(leftMenu,0,0);
+        GridPane.setConstraints(centerMenu,1,0);
+        mainGrid.getChildren().addAll(leftMenu,centerMenu);
+
+        mainScene = new Scene(mainGrid, 680, 380);
 
         VBox layout2 = new VBox(10);
         layout2.getChildren().addAll(label2, button3);
@@ -58,7 +84,7 @@ public class Main extends Application {
         window.show();
     }
 
-    public String getData(String domain, int count) {
+    private String getData(String domain, int count) {
         String api_url = "https://api.vk.com/method/";
         HttpClient httpClient = HttpClients.custom()
                 .setDefaultRequestConfig(RequestConfig.custom()
@@ -76,5 +102,17 @@ public class Main extends Application {
         }
         httpPost.abort();
         return response_text;
+    }
+
+    private String getDomain(String domain) {
+        domain = domain.toLowerCase();
+        domain = domain.trim();
+        if (domain.matches("^((https|http)(:)(/)(/)(www.vk.com|vk.com)(/)(?:[a-z0-9][a-z0-9_][a-z0-9]*))|((www.vk.com|vk.com)(/)(?:[a-z0-9][a-z0-9_][a-z0-9]*))$")) {
+            domain = domain.replaceFirst("^((https|http)(:)(/)(/)(www.vk.com|vk.com)(/))|((www.vk.com|vk.com)(/))$","");
+            domain = domain.replaceFirst("^((www.vk.com|vk.com)(/))|((https|http)(:)(/)(/)(www.vk.com|vk.com)(/))$","");
+        } else {
+            return null;
+        }
+        return domain;
     }
 }
