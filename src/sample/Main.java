@@ -25,6 +25,11 @@ public class Main extends Application {
     Button button1 = new Button("Post HTTP request");
     Button button2 = new Button("Check the sources list");
     Button button3 = new Button("Back");
+    Button button4 = new Button("Info");
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -38,12 +43,13 @@ public class Main extends Application {
             window.setScene(mainScene);
             label1.setText("Greetings!");
         });
+        button4.setOnAction(e -> alertBox.display("License", "THE SOFTWARE IS PROVIDED \"AS IS\""));
 
-        VBox layout1 = new VBox(20);
-        layout1.getChildren().addAll(label1, button1, button2);
+        VBox layout1 = new VBox(10);
+        layout1.getChildren().addAll(label1, button1, button2,button4);
         mainScene = new Scene(layout1, 400, 350);
 
-        VBox layout2 = new VBox(20);
+        VBox layout2 = new VBox(10);
         layout2.getChildren().addAll(label2, button3);
         sources = new Scene(layout2, 400, 350);
 
