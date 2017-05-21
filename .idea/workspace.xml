@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/sample/License.java" afterPath="" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Fixes">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/alertBox.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/confirmBox.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Alterum/sample/Main.class" afterPath="$PROJECT_DIR$/out/production/Alterum/sample/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main.java" afterPath="$PROJECT_DIR$/src/sample/Main.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,8 +67,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3">
-              <caret line="45" column="100" lean-forward="false" selection-start-line="45" selection-start-column="100" selection-end-line="45" selection-end-column="100" />
+            <state relative-caret-position="413">
+              <caret line="71" column="22" lean-forward="false" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#943#944#0" expanded="true" />
@@ -232,6 +233,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -519,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495365514534</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fixes">
+      <created>1495374662053</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1495374662053</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -828,8 +837,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3">
-          <caret line="45" column="100" lean-forward="false" selection-start-line="45" selection-start-column="100" selection-end-line="45" selection-end-column="100" />
+        <state relative-caret-position="413">
+          <caret line="71" column="22" lean-forward="false" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#943#944#0" expanded="true" />
