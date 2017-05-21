@@ -20,10 +20,10 @@ import java.io.IOException;
 public class Main extends Application {
 
     private Stage window;
-    Scene mainScene, sources;
+    private Scene mainScene, sources;
 
-    private TextArea HTTPanswer = new TextArea();
     private TextArea domainInput = new TextArea();
+    private TextArea HTTPAnswer = new TextArea();
     private Label label2 = new Label("Sources");
     private Button button1 = new Button("Request data");
     private Button button2 = new Button("Sources list");
@@ -40,7 +40,7 @@ public class Main extends Application {
 
         button1.setOnAction(e -> {
             if (getDomain(domainInput.getText()) != null) {
-                HTTPanswer.setText(getData(getDomain(domainInput.getText()), 1));
+                HTTPAnswer.setText(getData(getDomain(domainInput.getText()), 1));
             } else {
                 domainInput.clear();
                 domainInput.setPromptText("Введена некорректная строка!");
@@ -53,12 +53,12 @@ public class Main extends Application {
 
         domainInput.setPromptText("https://vk.com/sci_hub");
         domainInput.setMaxHeight(10);
-        HTTPanswer.setWrapText(true);
-        HTTPanswer.setMinHeight(320);
+        HTTPAnswer.setWrapText(true);
+        HTTPAnswer.setMinHeight(320);
 
         VBox centerMenu = new VBox();
         VBox leftMenu = new VBox();
-        centerMenu.getChildren().addAll(domainInput, HTTPanswer);
+        centerMenu.getChildren().addAll(domainInput, HTTPAnswer);
         leftMenu.getChildren().addAll(button1, button2, button4);
 
         BorderPane borderPane = new BorderPane();
@@ -110,9 +110,8 @@ public class Main extends Application {
         if (domain.matches("^((https|http)(:)(/)(/)(www.vk.com|vk.com)(/)(?:[a-z0-9][a-z0-9_][a-z0-9]*))|((www.vk.com|vk.com)(/)(?:[a-z0-9][a-z0-9_][a-z0-9]*))$")) {
             domain = domain.replaceFirst("^((https|http)(:)(/)(/)(www.vk.com|vk.com)(/))|((www.vk.com|vk.com)(/))$","");
             domain = domain.replaceFirst("^((www.vk.com|vk.com)(/))|((https|http)(:)(/)(/)(www.vk.com|vk.com)(/))$","");
-        } else {
+            return domain;
+        } else
             return null;
-        }
-        return domain;
     }
 }
