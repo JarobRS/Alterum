@@ -1,4 +1,4 @@
-package sample;
+package ex.GUI;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -8,7 +8,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class confirmBox {
+public class ConfirmBox {
     private static boolean answer;
     public static boolean display(String title, String message) {
         Stage window = new Stage();

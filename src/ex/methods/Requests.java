@@ -1,4 +1,4 @@
-package sample;
+package ex.methods;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -9,8 +9,8 @@ import org.apache.http.impl.client.HttpClients;
 
 import java.io.IOException;
 
-class requests {
-    static String getData(String domain, int count) {
+public class Requests {
+    public static String getData(String domain, int count) {
         String api_url = "https://api.vk.com/method/";
         HttpClient httpClient = HttpClients.custom()
                 .setDefaultRequestConfig(RequestConfig.custom()
@@ -30,7 +30,7 @@ class requests {
         return response_text;
     }
 
-    static String getDomain(String domain) {
+    public static String getDomain(String domain) {
         domain = domain.toLowerCase();
         domain = domain.trim();
         if (domain.matches("^((https|http)(:)(/)(/)(www.vk.com|vk.com)(/)(?:[a-z0-9_]*))|((www.vk.com|vk.com)(/)(?:[a-z0-9_]]*))$")) {
