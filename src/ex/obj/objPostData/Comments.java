@@ -1,7 +1,7 @@
 package ex.obj.objPostData;
 
 public class Comments {
-    private int count;
+    public int count;
 
     public Comments() {
     }
@@ -11,6 +11,6 @@ public class Comments {
     }
 
     public void setCount(int _count) {
-        count = _count;
+        this.count = _count;
     }
 }

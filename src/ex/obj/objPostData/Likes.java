@@ -1,7 +1,7 @@
 package ex.obj.objPostData;
 
 public class Likes {
-    private int count;
+    public int count;
 
     public Likes() {
     }
@@ -11,6 +11,6 @@ public class Likes {
     }
 
     public void setCount(int _count) {
-        count = _count;
+        this.count = _count;
     }
 }

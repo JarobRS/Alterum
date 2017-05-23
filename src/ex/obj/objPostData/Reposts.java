@@ -1,7 +1,7 @@
 package ex.obj.objPostData;
 
 public class Reposts {
-    private int count;
+    public int count;
 
     public Reposts() {
     }
@@ -11,6 +11,6 @@ public class Reposts {
     }
 
     public void setCount(int _count) {
-        count = _count;
+        this.count = _count;
     }
 }

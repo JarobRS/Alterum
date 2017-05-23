@@ -4,18 +4,18 @@ import java.util.List;
 import ex.obj.objPostData.*;
 
     public class ObjPost {
-        private int id;
-        private int from_id;
-        private int to_id;
-        private int date;
-        private String post_type;
-        private String text;
+        public int id;
+        public int from_id;
+        public int to_id;
+        public int date;
+        public String post_type;
+        public String text;
 
-        private Attachment attachment;
-        private List<Attachment> attachments;
-        private Comments comments;
-        private Likes likes;
-        private Reposts reposts;
+        public Attachment attachment;
+        public List<Attachment> attachments;
+        public Comments comments;
+        public Likes likes;
+        public Reposts reposts;
 
         public ObjPost() {
         }
@@ -42,8 +42,8 @@ import ex.obj.objPostData.*;
             return attachments;
         }
 
-        public Likes getLikes() {
-            return likes;
+        public int getLikes() {
+            return likes.count;
         }
 
         public void setAttachments(List<Attachment> _attachments) {
