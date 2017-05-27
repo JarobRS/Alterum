@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.web.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -46,7 +49,12 @@
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </VBox.margin>
             </TextField>
-            <ListView fx:id="HTTPAnswer" prefHeight="454.0" prefWidth="703.0" />
+            <FlowPane fx:id="feedPane" prefHeight="436.0" prefWidth="703.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" />
+               </children>
+            </FlowPane>
          </children>
       </VBox>
    </center>

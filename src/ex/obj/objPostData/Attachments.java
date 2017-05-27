@@ -1,6 +1,6 @@
 package ex.obj.objPostData;
 
-public class Attachment {
+public class Attachments {
     private String type;
     private Photo photo;
 

@@ -1,16 +1,18 @@
 package ex.obj.objPostData;
 
 public class Likes {
-    public int count;
+    private String count;
 
-    public Likes() {
+    public String getCount () {
+        return count;
     }
 
-    public Likes(int _count) {
-        count = _count;
+    public void setCount (String count) {
+        this.count = count;
     }
 
-    public void setCount(int _count) {
-        this.count = _count;
+    @Override
+    public String toString() {
+        return "ClassPojo [count = "+count+"]";
     }
 }

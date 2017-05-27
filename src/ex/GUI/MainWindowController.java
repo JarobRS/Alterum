@@ -1,14 +1,13 @@
 package ex.GUI;
 
 import ex.methods.Requests;
-import javafx.collections.ObservableList;
+import ex.methods.jsonParser;
+import ex.obj.objPostData.PostList;
+import ex.obj.objPostData.Response;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
-import javafx.scene.web.HTMLEditor;
+import javafx.scene.layout.FlowPane;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,10 +15,11 @@ import java.util.List;
 
 public class MainWindowController {
     @FXML TextField domainInputTextField;
-    @FXML ListView HTTPAnswer;
+    //@FXML ImageV HTTPAnswer;
+    @FXML FlowPane feedPane;
 
     public void getDataFromHttpRequest() throws IOException {
-        if (Requests.getDomain(domainInputTextField.getText()) != null) {
+        //if (Requests.getDomain(domainInputTextField.getText()) != null) {
             String domain = Requests.getDomain(domainInputTextField.getText());
             List<String> responseList;
             List<String> domainList = new ArrayList<>();
@@ -27,11 +27,14 @@ public class MainWindowController {
             for (int i = 0; i < 10; i++) {
                 domainList.add(i, "el_psy_congro");
             }
-            responseList = Requests.getData(domainList,20);
-            System.out.println(responseList.get(0));
+            responseList = Requests.getData(domainList,20); // Получаем список ответов по каждому домену в количестве 20 для отдельного домена
+            for (int i = 0; i < responseList.size()- 1; i++) {
+                List<PostList> postList = jsonParser.getDataFromJson(responseList.get(i)); // Преобразуем JSON в список постов.
+               // System.out.println(postList.get(0).toString());
+            }
 
             /*
-            Attachment attachment = new Attachment("photo");
+            Attachments attachment = new Attachments("photo");
             attachment.setPhoto(18484, 848185, 85151,
                     "https://cs540106.userapi.com/c540100/v540100219/442de/LkwZVqjjhhs.jpg",
                     "https://cs540106.userapi.com/c540100/v540100219/442df/V6kYGdzZvSk.jpg",
@@ -40,7 +43,7 @@ public class MainWindowController {
                     "https://cs540106.userapi.com/c540100/v540100219/442e1/BEAQUUqVCig.jpg",
             800, 1000, "", 1495479980,"4b561a917ba530152a");
 
-            List<Attachment> attachments = new ArrayList<>();
+            List<Attachments> attachments = new ArrayList<>();
             attachments.add(attachment);
             Comments comments = new Comments(1);
             Likes likes = new Likes(10);
@@ -49,11 +52,11 @@ public class MainWindowController {
             System.out.println(post.attachment.photo.src_xxbig);
             */
 
-            HTTPAnswer.setItems(responseList);
-        } else {
-            domainInputTextField.clear();
-            domainInputTextField.setPromptText("Введена некорректная ссылка!");
-        }
+            //feedPane.(responseList.get(0));
+        //} else {
+        //    domainInputTextField.clear();
+        //   domainInputTextField.setPromptText("Введена некорректная ссылка!");
+        // }
     }
 
     public void domainInputTextFieldClick() {
