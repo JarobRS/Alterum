@@ -2,12 +2,10 @@ package ex.GUI;
 
 import ex.methods.Requests;
 import ex.methods.jsonParser;
-import ex.obj.objPostData.PostList;
-import ex.obj.objPostData.Response;
+import ex.obj.PostList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,11 +22,11 @@ public class MainWindowController {
             List<String> responseList;
             List<String> domainList = new ArrayList<>();
 
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 1; i++) {
                 domainList.add(i, "el_psy_congro");
             }
             responseList = Requests.getData(domainList,20); // Получаем список ответов по каждому домену в количестве 20 для отдельного домена
-            for (int i = 0; i < responseList.size()- 1; i++) {
+            for (int i = 0; i < responseList.size(); i++) {
                 List<PostList> postList = jsonParser.getDataFromJson(responseList.get(i)); // Преобразуем JSON в список постов.
                // System.out.println(postList.get(0).toString());
             }
