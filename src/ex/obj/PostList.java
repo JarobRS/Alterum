@@ -10,13 +10,13 @@ import com.google.gson.annotations.SerializedName;
 public class PostList {
 
     @SerializedName("response")
-    private List<Response> mResponse;
+    private List<Object> mResponse;
 
-    public List<Response> getResponse() {
+    public List<Object> getResponse() {
         return mResponse;
     }
 
-    public void setResponse(List<Response> response) {
+    public void setResponse(List<Object> response) {
         mResponse = response;
     }
 
