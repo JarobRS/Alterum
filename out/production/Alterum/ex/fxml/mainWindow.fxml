@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.media.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.web.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
+<?import org.controlsfx.control.StatusBar?>
+<?import org.controlsfx.control.ToggleSwitch?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ex.GUI.MainWindowController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="856.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ex.GUI.MainWindowController">
    <left>
       <VBox BorderPane.alignment="CENTER">
          <children>
@@ -35,6 +29,7 @@
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </VBox.margin>
             </Button>
+            <ToggleSwitch fx:id="toggleSwitch1" onMouseClicked="#toggleSwitchOnMouseClicked" />
          </children>
          <BorderPane.margin>
             <Insets />
@@ -44,18 +39,19 @@
    <center>
       <VBox BorderPane.alignment="BOTTOM_RIGHT">
          <children>
-            <TextField fx:id="domainInputTextField" onMouseClicked="#domainInputTextFieldClick" promptText="https://vk.com/sci_hub" VBox.vgrow="ALWAYS">
+            <CustomTextField fx:id="domainInputTextField" onMouseClicked="#domainInputTextFieldClick" promptText="https://vk.com/sci_hub">
                <VBox.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-               </VBox.margin>
-            </TextField>
-            <FlowPane fx:id="feedPane" prefHeight="436.0" prefWidth="703.0">
-               <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0" />
-                  <HBox prefHeight="100.0" prefWidth="200.0" />
-               </children>
-            </FlowPane>
+               </VBox.margin></CustomTextField>
+            <ScrollPane fitToHeight="true" prefHeight="526.0" prefWidth="643.0" VBox.vgrow="ALWAYS">
+               <content>
+                  <FlowPane fx:id="feedPane" />
+               </content>
+            </ScrollPane>
          </children>
       </VBox>
    </center>
+   <bottom>
+      <StatusBar fx:id="mainStatusBar" opacity="0.75" prefHeight="138.0" prefWidth="760.0" BorderPane.alignment="CENTER" />
+   </bottom>
 </BorderPane>

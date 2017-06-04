@@ -1,5 +1,6 @@
 package ex.methods;
 
+import ex.GUI.MainWindowController;
 import org.apache.http.HeaderElement;
 import org.apache.http.HeaderElementIterator;
 import org.apache.http.HttpResponse;
@@ -48,7 +49,7 @@ public class Requests {
             httpPost = new HttpPost(api_url + "wall.get?" +
                     "domain=" + domainList.get(i) +
                     "&count=" + count);
-            System.out.println(i);
+            //MainWindowController.setStatusBarValue((double) i/domainList.size());
             try {
                 HttpResponse response = httpClient.execute(httpPost);
                 response_text.add(org.apache.http.util.EntityUtils.toString(response.getEntity()));
