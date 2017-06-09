@@ -15,18 +15,24 @@ public class Response {
     private List<Attachment> mAttachments;
     @SerializedName("comments")
     private Comments mComments;
+    @SerializedName("copy_owner_id")
+    private Long mCopyOwnerId;
+    @SerializedName("copy_post_date")
+    private Long mCopyPostDate;
+    @SerializedName("copy_post_id")
+    private Long mCopyPostId;
+    @SerializedName("copy_post_type")
+    private String mCopyPostType;
+    @SerializedName("copy_text")
+    private String mCopyText;
     @SerializedName("date")
     private Long mDate;
     @SerializedName("from_id")
     private Long mFromId;
     @SerializedName("id")
     private Long mId;
-    @SerializedName("is_pinned")
-    private Long mIsPinned;
     @SerializedName("likes")
     private Likes mLikes;
-    @SerializedName("marked_as_ads")
-    private Long mMarkedAsAds;
     @SerializedName("post_type")
     private String mPostType;
     @SerializedName("reposts")
@@ -62,6 +68,46 @@ public class Response {
         mComments = comments;
     }
 
+    public Long getCopyOwnerId() {
+        return mCopyOwnerId;
+    }
+
+    public void setCopyOwnerId(Long copyOwnerId) {
+        mCopyOwnerId = copyOwnerId;
+    }
+
+    public Long getCopyPostDate() {
+        return mCopyPostDate;
+    }
+
+    public void setCopyPostDate(Long copyPostDate) {
+        mCopyPostDate = copyPostDate;
+    }
+
+    public Long getCopyPostId() {
+        return mCopyPostId;
+    }
+
+    public void setCopyPostId(Long copyPostId) {
+        mCopyPostId = copyPostId;
+    }
+
+    public String getCopyPostType() {
+        return mCopyPostType;
+    }
+
+    public void setCopyPostType(String copyPostType) {
+        mCopyPostType = copyPostType;
+    }
+
+    public String getCopyText() {
+        return mCopyText;
+    }
+
+    public void setCopyText(String copyText) {
+        mCopyText = copyText;
+    }
+
     public Long getDate() {
         return mDate;
     }
@@ -86,28 +132,12 @@ public class Response {
         mId = id;
     }
 
-    public Long getIsPinned() {
-        return mIsPinned;
-    }
-
-    public void setIsPinned(Long isPinned) {
-        mIsPinned = isPinned;
-    }
-
     public Likes getLikes() {
         return mLikes;
     }
 
     public void setLikes(Likes likes) {
         mLikes = likes;
-    }
-
-    public Long getMarkedAsAds() {
-        return mMarkedAsAds;
-    }
-
-    public void setMarkedAsAds(Long markedAsAds) {
-        mMarkedAsAds = markedAsAds;
     }
 
     public String getPostType() {

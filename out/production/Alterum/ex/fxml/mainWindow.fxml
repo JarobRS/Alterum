@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
+<?import org.controlsfx.control.MaskerPane?>
 <?import org.controlsfx.control.StatusBar?>
 <?import org.controlsfx.control.ToggleSwitch?>
 <?import org.controlsfx.control.textfield.CustomTextField?>
@@ -30,6 +31,7 @@
                </VBox.margin>
             </Button>
             <ToggleSwitch fx:id="toggleSwitch1" onMouseClicked="#toggleSwitchOnMouseClicked" />
+            <MaskerPane fx:id="progressPane" prefHeight="444.0" prefWidth="82.0" />
          </children>
          <BorderPane.margin>
             <Insets />

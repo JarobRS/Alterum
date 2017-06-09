@@ -1,6 +1,6 @@
 package ex.methods;
 
-import ex.GUI.MainWindowController;
+import ex.obj.Response;
 import org.apache.http.HeaderElement;
 import org.apache.http.HeaderElementIterator;
 import org.apache.http.HttpResponse;
@@ -12,6 +12,7 @@ import org.apache.http.conn.ConnectionKeepAliveStrategy;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicHeaderElementIterator;
 import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class Requests {
     public static List<String> getData(List<String> domainList, int count) {
 
         String api_url = "https://api.vk.com/method/";
-        List<String> response_text = new ArrayList<>();
+        List<String> responseText = new ArrayList<>();
 
         ConnectionKeepAliveStrategy myStrategy = (response, context) -> {
             HeaderElementIterator it = new BasicHeaderElementIterator
@@ -49,17 +50,16 @@ public class Requests {
             httpPost = new HttpPost(api_url + "wall.get?" +
                     "domain=" + domainList.get(i) +
                     "&count=" + count);
-            //MainWindowController.setStatusBarValue((double) i/domainList.size());
             try {
                 HttpResponse response = httpClient.execute(httpPost);
-                response_text.add(org.apache.http.util.EntityUtils.toString(response.getEntity()));
+                responseText.add(EntityUtils.toString(response.getEntity()));
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
 
         httpPost.abort();
-        return response_text;
+        return responseText;
     }
 
     public static String getDomain(String domain) {

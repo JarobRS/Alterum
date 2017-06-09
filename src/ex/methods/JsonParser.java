@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class jsonParser {
+public class JsonParser {
 
     public static List<Response> getDataFromJson(String jsonData) throws IOException {
         Gson gson = new Gson();

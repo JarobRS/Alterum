@@ -8,10 +8,16 @@ import com.google.gson.annotations.SerializedName;
 @SuppressWarnings("unused")
 public class Attachment {
 
+    @SerializedName("audio")
+    private Audio mAudio;
     @SerializedName("doc")
     private Doc mDoc;
     @SerializedName("link")
     private Link mLink;
+    @SerializedName("note")
+    private Note mNote;
+    @SerializedName("page")
+    private Page mPage;
     @SerializedName("photo")
     private Photo mPhoto;
     @SerializedName("poll")
@@ -20,6 +26,14 @@ public class Attachment {
     private String mType;
     @SerializedName("video")
     private Video mVideo;
+
+    public Audio getAudio() {
+        return mAudio;
+    }
+
+    public void setAudio(Audio audio) {
+        mAudio = audio;
+    }
 
     public Doc getDoc() {
         return mDoc;
@@ -35,6 +49,22 @@ public class Attachment {
 
     public void setLink(Link link) {
         mLink = link;
+    }
+
+    public Note getNote() {
+        return mNote;
+    }
+
+    public void setNote(Note note) {
+        mNote = note;
+    }
+
+    public Page getPage() {
+        return mPage;
+    }
+
+    public void setPage(Page page) {
+        mPage = page;
     }
 
     public Photo getPhoto() {

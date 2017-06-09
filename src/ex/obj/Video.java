@@ -32,8 +32,6 @@ public class Video {
     private String mImageSmall;
     @SerializedName("image_xbig")
     private String mImageXbig;
-    @SerializedName("is_private")
-    private Long mIsPrivate;
     @SerializedName("owner_id")
     private Long mOwnerId;
     @SerializedName("platform")
@@ -139,14 +137,6 @@ public class Video {
 
     public void setImageXbig(String imageXbig) {
         mImageXbig = imageXbig;
-    }
-
-    public Long getIsPrivate() {
-        return mIsPrivate;
-    }
-
-    public void setIsPrivate(Long isPrivate) {
-        mIsPrivate = isPrivate;
     }
 
     public Long getOwnerId() {
