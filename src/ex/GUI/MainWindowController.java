@@ -47,7 +47,7 @@ public class MainWindowController {
                     domainList.add(domain);
 
                     progressPane.setVisible(true);
-                    List<String> responseList = Requests.getData(domainList,200); // Получаем список ответов по каждому домену в количестве 20 для отдельного домена;
+                    List<String> responseList = Requests.getPostContent(domainList,200); // Получаем список ответов по каждому домену в количестве 20 для отдельного домена;
                     final List<Item> postList = JsonParser.getDataFromJson(responseList.get(0)); // Преобразуем JSON в список постов.
                     progressPane.setVisible(false);
 
