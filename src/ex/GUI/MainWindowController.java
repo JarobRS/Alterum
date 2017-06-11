@@ -1,16 +1,17 @@
 package ex.GUI;
 
-import ex.methods.Requests;
 import ex.methods.JsonParser;
-import ex.obj.Response;
+import ex.methods.PostBuilder;
+import ex.methods.Requests;
+import ex.obj.wall.Item;
+import ex.obj.wall.Response;
 import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.fxml.FXML;
-import javafx.scene.control.Separator;
+import javafx.scene.Node;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
 import org.controlsfx.control.MaskerPane;
 import org.controlsfx.control.StatusBar;
 import org.controlsfx.control.ToggleSwitch;
@@ -21,7 +22,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutionException;
 
 public class MainWindowController {
     @FXML private CustomTextField domainInputTextField;
@@ -43,40 +44,42 @@ public class MainWindowController {
                     String domain = Requests.getDomain(domainInputTextField.getText());
                     List<String> domainList = new ArrayList<>();
 
-                    for (int i = 0; i < 10; i++) {
-                        domainList.add(i, "greatredshift");
-                    }
-
-                    List<Response> postList;
-                    List<String> responseList;
+                    domainList.add(domain);
 
                     progressPane.setVisible(true);
-                    responseList = Requests.getData(domainList,200); // Получаем список ответов по каждому домену в количестве 20 для отдельного домена;
+                    List<String> responseList = Requests.getData(domainList,200); // Получаем список ответов по каждому домену в количестве 20 для отдельного домена;
+                    final List<Item> postList = JsonParser.getDataFromJson(responseList.get(0)); // Преобразуем JSON в список постов.
                     progressPane.setVisible(false);
 
-                    Platform.runLater(() -> feedPane.getChildren().clear());
-                    for (int i = 0; i < responseList.size(); i++) {
-                        postList = JsonParser.getDataFromJson(responseList.get(i)); // Преобразуем JSON в список постов.
+                    Platform.runLater(() -> {
+                        feedPane.getChildren().clear();
+                        VBox postSeparator = new VBox();
+                        postSeparator.setMinHeight(14);
+                        postSeparator.setMinWidth(2000);
+                        feedPane.getChildren().add(postSeparator);
+                    });
 
-                        String imageURI = "https://www.picclickimg.com/d/l400/pict/252711963244_/Samsung-control-panel-assembly-part-number-de94-02001b.jpg";
-                        try {
-                            imageURI = postList.get(i).getAttachment().getPhoto().getSrcBig();
-                        } catch (Exception e) {}
+                    int postsByPage;
+                    if (postList.size() <= 20)
+                        postsByPage = postList.size();
+                    else
+                        postsByPage = 20;
 
-                        Image image = new Image(imageURI);
-                        ImageView imageView = new ImageView(image);
-                        double w = image.getWidth();
-                        if (w > 500) {
-                            double p = (w - 500)/w;
-                            imageView.setFitWidth(500);
-                            imageView.setFitHeight(image.getHeight() - (image.getHeight() * p));
-                        }
+                    for (int i = 0; i < postsByPage; i++) {
 
+                        final int j = i;
                         Platform.runLater(() -> {
-                            feedPane.getChildren().add(imageView);
-                            feedPane.getChildren().add(new Separator());
+
+                            feedPane.getChildren().add((Node) PostBuilder.buildPost(postList.get(j)));
+
+                            VBox postSeparator = new VBox();
+                            postSeparator.setMinHeight(14);
+                            postSeparator.setMinWidth(2000);
+                            feedPane.getChildren().add(postSeparator);
+
+                            mainStatusBar.setProgress((double) (j+1)/postsByPage);
                         });
-                        mainStatusBar.setProgress((double) (i+1)/responseList.size());
+                        Thread.sleep(200);
                     }
                     mainStatusBar.setProgress(0);
                 }
@@ -84,8 +87,6 @@ public class MainWindowController {
                     throw new IllegalStateException("task interrupted", e);
                 }
             };
-            //ExecutorService executor = Executors.newFixedThreadPool(1);
-            //Future<List<String>> future = executor.submit(task);
             Thread thread = new Thread(task);
             thread.start();
         } else {
@@ -106,12 +107,12 @@ public class MainWindowController {
     }
 
     public void domainInputTextFieldClick() {
-        domainInputTextField.setPromptText("https://vk.com/raisongran");
+        domainInputTextField.setPromptText("https://vk.com/greatredshift");
     }
 
     public void toggleSwitchOnMouseClicked() {
         if (toggleSwitch1.isSelected())
-            domainInputTextField.setText("https://vk.com/raisongran");
+            domainInputTextField.setText("https://vk.com/greatredshift");
         else
             domainInputTextField.setText("");
     }

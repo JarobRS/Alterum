@@ -1,6 +1,5 @@
 package ex.methods;
 
-import ex.obj.Response;
 import org.apache.http.HeaderElement;
 import org.apache.http.HeaderElementIterator;
 import org.apache.http.HttpResponse;
@@ -23,7 +22,9 @@ public class Requests {
     public static List<String> getData(List<String> domainList, int count) {
 
         String api_url = "https://api.vk.com/method/";
-        List<String> responseText = new ArrayList<>();
+        String api_version = "5.65";
+
+        List<String> responseList = new ArrayList<>();
 
         ConnectionKeepAliveStrategy myStrategy = (response, context) -> {
             HeaderElementIterator it = new BasicHeaderElementIterator
@@ -49,17 +50,18 @@ public class Requests {
         for (int i = 0; i < domainList.size(); i++) {
             httpPost = new HttpPost(api_url + "wall.get?" +
                     "domain=" + domainList.get(i) +
-                    "&count=" + count);
+                    "&count=" + count +
+                    "&v=" + api_version);
             try {
                 HttpResponse response = httpClient.execute(httpPost);
-                responseText.add(EntityUtils.toString(response.getEntity()));
+                responseList.add(EntityUtils.toString(response.getEntity()));
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
 
         httpPost.abort();
-        return responseText;
+        return responseList;
     }
 
     public static String getDomain(String domain) {

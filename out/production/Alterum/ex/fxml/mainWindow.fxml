@@ -31,7 +31,6 @@
                </VBox.margin>
             </Button>
             <ToggleSwitch fx:id="toggleSwitch1" onMouseClicked="#toggleSwitchOnMouseClicked" />
-            <MaskerPane fx:id="progressPane" prefHeight="444.0" prefWidth="82.0" />
          </children>
          <BorderPane.margin>
             <Insets />
@@ -39,16 +38,22 @@
       </VBox>
    </left>
    <center>
-      <VBox BorderPane.alignment="BOTTOM_RIGHT">
+      <VBox fx:id="mainVBoxRight" alignment="TOP_CENTER" BorderPane.alignment="BOTTOM_RIGHT">
          <children>
             <CustomTextField fx:id="domainInputTextField" onMouseClicked="#domainInputTextFieldClick" promptText="https://vk.com/sci_hub">
                <VBox.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </VBox.margin></CustomTextField>
-            <ScrollPane fitToHeight="true" prefHeight="526.0" prefWidth="643.0" VBox.vgrow="ALWAYS">
+            <ScrollPane fitToHeight="true" fitToWidth="true" VBox.vgrow="ALWAYS">
                <content>
-                  <FlowPane fx:id="feedPane" />
+                  <FlowPane fx:id="feedPane" alignment="TOP_CENTER" columnHalignment="CENTER" rowValignment="TOP">
+                     <children>
+                        <MaskerPane fx:id="progressPane" prefHeight="519.0" prefWidth="733.0" />
+                     </children></FlowPane>
                </content>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
             </ScrollPane>
          </children>
       </VBox>
