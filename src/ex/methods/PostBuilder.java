@@ -17,7 +17,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import org.fxmisc.richtext.StyleClassedTextArea;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -72,7 +71,7 @@ public class PostBuilder {
         borderBox.setStyle("-fx-background-color: #FFFFFF;");
         borderBox.setPrefWidth(510);
         borderBox.setMaxSize(510,210);
-        borderBox.setPadding(new Insets(16, 0, 0, 0));
+        borderBox.setPadding(new Insets(16, 0, 0, -4));
 
         GridPane titleBox = new GridPane();
 
@@ -122,7 +121,7 @@ public class PostBuilder {
             nameAndDateBox.getChildren().add(new Label(name));
         else
             nameAndDateBox.getChildren().add(new Label(firstName+" "+lastName));
-        nameAndDateBox.getChildren().add(new Label("-"));
+        //nameAndDateBox.getChildren().add(new Label("-"));
         titleBox.add(nameAndDateBox, 1, 0);
 
         Region divider = new Region();
@@ -184,7 +183,7 @@ public class PostBuilder {
             nameAndDateBox.getChildren().add(new Label(name));
         else
             nameAndDateBox.getChildren().add(new Label(firstName+" "+lastName));
-        nameAndDateBox.getChildren().add(new Label("-"));
+        //nameAndDateBox.getChildren().add(new Label("-"));
         titleBox.add(nameAndDateBox, 1, 0);
         return titleBox;
     }
@@ -198,14 +197,8 @@ public class PostBuilder {
         postBox.setPrefWidth(510);
         postBox.setPadding(new Insets(14, 0, 0, 0));
 
-        if (!Objects.equals(rawPost.getText(), "")) {
-            StyleClassedTextArea textArea = new StyleClassedTextArea();
-            textArea.setWrapText(true);
-            textArea.setDisable(true);
-            textArea.setMaxSize(510,210);
-            textArea.appendText(rawPost.getText());
-            postBox.getChildren().add(textArea);
-        }
+        if (!Objects.equals(rawPost.getText(), ""))
+            postBox.getChildren().add(buildTextArea(rawPost.getText(), 540));
 
         try {
             Image image = new Image(rawPost.getAttachments().get(0).getPhoto().getPhoto604());
@@ -257,30 +250,8 @@ public class PostBuilder {
         intent.setMinHeight(14);
         postBox.getChildren().add(intent);
 
-        if (!Objects.equals(rawPost.getText(), "")) {
-            TextArea textArea = new TextArea();
-            textArea.setStyle(
-                    "-fx-background-color: #ffffff;" +
-                    "-fx-border-color: #ffffff;" +
-                    "-fx-focus-color: transparent;" +
-                    "-fx-faint-focus-color: transparent;");
-            textArea.setDisable(false);
-            textArea.setWrapText(true);
-            textArea.setText(rawPost.getText());
-
-            Text textHolder = new Text();
-            //textHolder.textProperty().bind(textArea.textProperty());
-
-            textArea.setFont(Font.font ("Open Sans", 13.780538082125)); // даже не спрашивайте, зачем здесь это число и как я его вычислил
-            textHolder.setText(textArea.getText());
-            textHolder.setFont(Font.font ("Open Sans", 15));
-            textHolder.setWrappingWidth(496);
-
-            textArea.setPrefHeight(textHolder.getLayoutBounds().getHeight()+20);
-            System.out.println(textHolder.getLayoutBounds().getHeight());
-
-            postBox.getChildren().add(textArea);
-        }
+        if (!Objects.equals(rawPost.getText(), ""))
+            postBox.getChildren().add(buildTextArea(rawPost.getText(), 496));
 
         try {
             Image image = new Image(rawPost.getAttachments().get(0).getPhoto().getPhoto604());
@@ -332,5 +303,32 @@ public class PostBuilder {
         underlineBox.getChildren().addAll(likesLabel, commentsLabel, repostsLabel, divider, viewsLabel);
 
         return underlineBox;
+    }
+
+    private static TextArea buildTextArea(String rawText, int width) {
+
+        TextArea textArea = new TextArea();
+        textArea.setStyle("-fx-background-color: #ffffff;" +
+                "-fx-border-color: #ffffff;" +
+                "-fx-focus-color: transparent;" +
+                "-fx-faint-focus-color: transparent;");
+        textArea.setMaxWidth(width);
+        textArea.setEditable(false);
+        textArea.setWrapText(true);
+        textArea.setText(rawText);
+
+        textArea.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (!newPropertyValue)
+                textArea.deselect();}
+        );
+
+        Text textHolder = new Text();
+        textArea.setFont(Font.font("Open Sans", 13.780538082125)); // даже не спрашивайте, зачем здесь это число и как я его вычислил
+        textHolder.setText(textArea.getText());
+        textHolder.setFont(Font.font("Open Sans", 15));
+        textHolder.setWrappingWidth(width);
+
+        textArea.setPrefHeight(textHolder.getLayoutBounds().getHeight() + 20);
+        return textArea;
     }
 }

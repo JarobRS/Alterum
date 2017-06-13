@@ -11,7 +11,7 @@
 <?import org.controlsfx.control.ToggleSwitch?>
 <?import org.controlsfx.control.textfield.CustomTextField?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ex.ui.MainWindowController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="686.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ex.ui.MainWindowController">
    <left>
       <VBox BorderPane.alignment="CENTER">
          <children>
@@ -48,7 +48,10 @@
                <content>
                   <FlowPane fx:id="feedPane" alignment="TOP_CENTER" columnHalignment="CENTER" rowValignment="TOP">
                      <children>
-                        <MaskerPane fx:id="progressPane" prefHeight="519.0" prefWidth="733.0" />
+                        <MaskerPane fx:id="progressPane">
+                           <FlowPane.margin>
+                              <Insets top="230.0" />
+                           </FlowPane.margin></MaskerPane>
                      </children></FlowPane>
                </content>
                <VBox.margin>

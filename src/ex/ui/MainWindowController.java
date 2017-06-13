@@ -36,11 +36,10 @@ public class MainWindowController {
     public void initialize() {
         setupClearButtonField(domainInputTextField);
         progressPane.setVisible(false);
-        mainScrollPane.setStyle(
-                "-fx-background-color: #EDEEF0;" +
-                        "-fx-border-color: #EDEEF0;" +
-                        "-fx-focus-color: transparent;" +
-                        "-fx-faint-focus-color: transparent;");
+        mainScrollPane.setStyle("-fx-background-color: #EDEEF0;" +
+                "-fx-border-color: #EDEEF0;" +
+                "-fx-focus-color: transparent;" +
+                "-fx-faint-focus-color: transparent;");
     }
 
     public void getDataFromHttpRequest() throws IOException, InterruptedException, ExecutionException {
