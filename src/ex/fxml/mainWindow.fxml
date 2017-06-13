@@ -11,7 +11,7 @@
 <?import org.controlsfx.control.ToggleSwitch?>
 <?import org.controlsfx.control.textfield.CustomTextField?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="856.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ex.GUI.MainWindowController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ex.ui.MainWindowController">
    <left>
       <VBox BorderPane.alignment="CENTER">
          <children>
@@ -44,7 +44,7 @@
                <VBox.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </VBox.margin></CustomTextField>
-            <ScrollPane fitToHeight="true" fitToWidth="true" VBox.vgrow="ALWAYS">
+            <ScrollPane fx:id="mainScrollPane" fitToHeight="true" fitToWidth="true" VBox.vgrow="ALWAYS">
                <content>
                   <FlowPane fx:id="feedPane" alignment="TOP_CENTER" columnHalignment="CENTER" rowValignment="TOP">
                      <children>
@@ -59,6 +59,6 @@
       </VBox>
    </center>
    <bottom>
-      <StatusBar fx:id="mainStatusBar" opacity="0.75" prefHeight="138.0" prefWidth="760.0" BorderPane.alignment="CENTER" />
+      <StatusBar fx:id="mainStatusBar" opacity="0.75" prefHeight="138.0" prefWidth="882.0" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>

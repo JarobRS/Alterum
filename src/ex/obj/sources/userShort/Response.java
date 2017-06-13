@@ -1,5 +1,5 @@
 
-package ex.obj.sources;
+package ex.obj.sources.userShort;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
@@ -10,10 +10,12 @@ public class Response {
 
     @SerializedName("first_name")
     private String mFirstName;
+    @SerializedName("id")
+    private Long mId;
     @SerializedName("last_name")
     private String mLastName;
-    @SerializedName("uid")
-    private Long mUid;
+    @SerializedName("photo_50")
+    private String mPhoto50;
 
     public String getFirstName() {
         return mFirstName;
@@ -21,6 +23,14 @@ public class Response {
 
     public void setFirstName(String firstName) {
         mFirstName = firstName;
+    }
+
+    public Long getId() {
+        return mId;
+    }
+
+    public void setId(Long id) {
+        mId = id;
     }
 
     public String getLastName() {
@@ -31,12 +41,12 @@ public class Response {
         mLastName = lastName;
     }
 
-    public Long getUid() {
-        return mUid;
+    public String getPhoto50() {
+        return mPhoto50;
     }
 
-    public void setUid(Long uid) {
-        mUid = uid;
+    public void setPhoto50(String photo50) {
+        mPhoto50 = photo50;
     }
 
 }

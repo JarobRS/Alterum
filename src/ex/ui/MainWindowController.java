@@ -1,14 +1,14 @@
-package ex.GUI;
+package ex.ui;
 
 import ex.methods.JsonParser;
 import ex.methods.PostBuilder;
 import ex.methods.Requests;
 import ex.obj.wall.Item;
-import ex.obj.wall.Response;
 import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
@@ -30,11 +30,17 @@ public class MainWindowController {
     @FXML private ToggleSwitch toggleSwitch1;
     @FXML private FlowPane feedPane;
     @FXML private MaskerPane progressPane;
+    @FXML private ScrollPane mainScrollPane;
 
     @FXML
     public void initialize() {
         setupClearButtonField(domainInputTextField);
         progressPane.setVisible(false);
+        mainScrollPane.setStyle(
+                "-fx-background-color: #EDEEF0;" +
+                        "-fx-border-color: #EDEEF0;" +
+                        "-fx-focus-color: transparent;" +
+                        "-fx-faint-focus-color: transparent;");
     }
 
     public void getDataFromHttpRequest() throws IOException, InterruptedException, ExecutionException {
@@ -48,7 +54,7 @@ public class MainWindowController {
 
                     progressPane.setVisible(true);
                     List<String> responseList = Requests.getPostContent(domainList,200); // Получаем список ответов по каждому домену в количестве 20 для отдельного домена;
-                    final List<Item> postList = JsonParser.getDataFromJson(responseList.get(0)); // Преобразуем JSON в список постов.
+                    final List<Item> postList = JsonParser.getPostContent(responseList.get(0)); // Преобразуем JSON в список постов.
                     progressPane.setVisible(false);
 
                     Platform.runLater(() -> {
@@ -79,12 +85,15 @@ public class MainWindowController {
 
                             mainStatusBar.setProgress((double) (j+1)/postsByPage);
                         });
-                        Thread.sleep(200);
+                        Thread.sleep(400);
                     }
-                    mainStatusBar.setProgress(0);
+                    Platform.runLater(() -> mainStatusBar.setProgress(0));
                 }
                 catch (Exception e) {
-                    throw new IllegalStateException("task interrupted", e);
+                    domainInputTextField.clear();
+                    domainInputTextField.setPromptText("Такой страницы не существует!");
+                    progressPane.setVisible(false);
+                    //throw new IllegalStateException("task interrupted", e);
                 }
             };
             Thread thread = new Thread(task);
@@ -107,14 +116,14 @@ public class MainWindowController {
     }
 
     public void domainInputTextFieldClick() {
-        domainInputTextField.setPromptText("https://vk.com/greatredshift");
+        domainInputTextField.setPromptText("https://vk.com/kosmoshturm");
     }
 
     public void toggleSwitchOnMouseClicked() {
         if (toggleSwitch1.isSelected())
             domainInputTextField.setText("https://vk.com/greatredshift");
         else
-            domainInputTextField.setText("");
+            domainInputTextField.setText("https://vk.com/kosmoshturm");
     }
 
     public void displayLicenseInfo() {
