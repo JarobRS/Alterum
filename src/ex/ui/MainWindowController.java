@@ -87,8 +87,8 @@ public class MainWindowController {
                         Thread.sleep(400);
                     }
                     Platform.runLater(() -> mainStatusBar.setProgress(0));
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
+                    e.printStackTrace();
                     domainInputTextField.clear();
                     domainInputTextField.setPromptText("Такой страницы не существует!");
                     progressPane.setVisible(false);

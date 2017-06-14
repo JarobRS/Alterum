@@ -201,25 +201,9 @@ public class PostBuilder {
             postBox.getChildren().add(buildTextArea(rawPost.getText(), 540));
 
         try {
-            Image image = new Image(rawPost.getAttachments().get(0).getPhoto().getPhoto604());
-            ImageView imageView = new ImageView(image);
-
-            double w = image.getWidth();
-            if (w > 510) {
-                double p = (w - 510) / w;
-                imageView.setFitWidth(510);
-                imageView.setFitHeight(image.getHeight() - (image.getHeight() * p));
-            }
-
-            double h = image.getHeight();
-            if (h > 510) {
-                double p = (h - 510) / h;
-                imageView.setFitHeight(510);
-                imageView.setFitWidth(image.getWidth() - (image.getWidth() * p));
-            }
-
-            postBox.getChildren().add(imageView);
+            postBox.getChildren().add(buildMainImage(rawPost.getAttachments().get(0).getPhoto().getPhoto604(),510));
         } catch (Exception ignored) {}
+
 
         return postBox;
     }
@@ -253,26 +237,8 @@ public class PostBuilder {
         if (!Objects.equals(rawPost.getText(), ""))
             postBox.getChildren().add(buildTextArea(rawPost.getText(), 496));
 
-        try {
-            Image image = new Image(rawPost.getAttachments().get(0).getPhoto().getPhoto604());
-            ImageView imageView = new ImageView(image);
-
-            double w = image.getWidth();
-            if (w > 496) {
-                double p = (w - 496) / w;
-                imageView.setFitWidth(496);
-                imageView.setFitHeight(image.getHeight() - (image.getHeight() * p));
-            }
-
-            double h = image.getHeight();
-            if (h > 496) {
-                double p = (h - 496) / h;
-                imageView.setFitHeight(496);
-                imageView.setFitWidth(image.getWidth() - (image.getWidth() * p));
-            }
-
-            postBox.getChildren().add(imageView);
-        } catch (Exception ignored) {}
+        if (!Objects.equals(rawPost.getAttachments().get(0).getPhoto(), null))
+            postBox.getChildren().add(buildMainImage(rawPost.getAttachments().get(0).getPhoto().getPhoto604(),496));
 
         mainGrid.add(indentBox, 0, 0);
         mainGrid.add(postBox, 1, 0);
@@ -312,6 +278,7 @@ public class PostBuilder {
                 "-fx-border-color: #ffffff;" +
                 "-fx-focus-color: transparent;" +
                 "-fx-faint-focus-color: transparent;");
+        textArea.setPadding(new Insets(0, 0, 0, -10));
         textArea.setMaxWidth(width);
         textArea.setEditable(false);
         textArea.setWrapText(true);
@@ -330,5 +297,27 @@ public class PostBuilder {
 
         textArea.setPrefHeight(textHolder.getLayoutBounds().getHeight() + 20);
         return textArea;
+    }
+
+    private static ImageView buildMainImage(String url, int size) {
+
+        Image image = new Image(url);
+        ImageView imageView = new ImageView(image);
+
+        double w = image.getWidth();
+        if (w > size) {
+            double p = (w - size) / w;
+            imageView.setFitWidth(size);
+            imageView.setFitHeight(image.getHeight() - (image.getHeight() * p));
+        }
+
+        double h = image.getHeight();
+        if (h > size) {
+            double p = (h - size) / h;
+            imageView.setFitHeight(size);
+            imageView.setFitWidth(image.getWidth() - (image.getWidth() * p));
+        }
+
+        return imageView;
     }
 }
