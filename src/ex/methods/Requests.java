@@ -47,11 +47,51 @@ public class Requests {
                 .build();
 
         HttpPost httpPost = new HttpPost();
-        for (int i = 0; i < domainList.size(); i++) {
+        for (String aDomainList : domainList) {
             httpPost = new HttpPost(api_url + "wall.get?" +
-                    "domain=" + domainList.get(i) +
+                    "domain=" + aDomainList +
                     "&count=" + count +
                     "&v=" + api_version);
+            try {
+                HttpResponse response = httpClient.execute(httpPost);
+                responseList.add(EntityUtils.toString(response.getEntity()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        httpPost.abort();
+        return responseList;
+    }
+
+    public static List<String> getPostContentHtml(List<String> domainList) {
+
+        List<String> responseList = new ArrayList<>();
+        String api_url = "https://vk.com/";
+
+        ConnectionKeepAliveStrategy myStrategy = (resp, context) -> {
+            HeaderElementIterator it = new BasicHeaderElementIterator
+                    (resp.headerIterator(HTTP.CONN_KEEP_ALIVE));
+            while (it.hasNext()) {
+                HeaderElement he = it.nextElement();
+                String param = he.getName();
+                String value = he.getValue();
+                if (value != null && param.equalsIgnoreCase
+                        ("timeout")) {
+                    return Long.parseLong(value) * 1000;
+                }
+            }
+            return 40 * 1000;
+        };
+
+        HttpClient httpClient = HttpClients.custom()
+                .setDefaultRequestConfig(RequestConfig.custom().setCookieSpec(CookieSpecs.IGNORE_COOKIES).build())
+                .setKeepAliveStrategy(myStrategy)
+                .build();
+
+        HttpPost httpPost = new HttpPost();
+        for (String aDomainList : domainList) {
+            httpPost = new HttpPost(api_url + aDomainList);
             try {
                 HttpResponse response = httpClient.execute(httpPost);
                 responseList.add(EntityUtils.toString(response.getEntity()));

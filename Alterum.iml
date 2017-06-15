@@ -33,5 +33,6 @@
     <orderEntry type="library" name="openjfx-dialogs-1.0.3" level="application" />
     <orderEntry type="library" name="controlsfx-8.40.12" level="application" />
     <orderEntry type="library" name="org.fxmisc.richtext:richtextfx:0.6.10" level="application" />
+    <orderEntry type="library" name="org.jsoup:jsoup:1.10.3" level="application" />
   </component>
 </module>
