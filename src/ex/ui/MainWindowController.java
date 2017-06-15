@@ -1,5 +1,6 @@
 package ex.ui;
 
+import com.sun.org.apache.regexp.internal.RE;
 import ex.methods.JsonParser;
 import ex.methods.PostBuilder;
 import ex.methods.Requests;
@@ -12,11 +13,17 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import org.controlsfx.control.MaskerPane;
 import org.controlsfx.control.StatusBar;
 import org.controlsfx.control.ToggleSwitch;
 import org.controlsfx.control.textfield.CustomTextField;
 import org.controlsfx.control.textfield.TextFields;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -31,6 +38,7 @@ public class MainWindowController {
     @FXML private FlowPane feedPane;
     @FXML private MaskerPane progressPane;
     @FXML private ScrollPane mainScrollPane;
+    @FXML private WebView webView0;
 
     @FXML
     public void initialize() {
@@ -52,7 +60,19 @@ public class MainWindowController {
                     domainList.add(domain);
 
                     progressPane.setVisible(true);
-                    List<String> responseList = Requests.getPostContent(domainList,200); // Получаем список ответов по каждому домену в количестве 20 для отдельного домена;
+                    List<String> responseList = Requests.getPostContentHtml(domainList); // Получаем список ответов по каждому домену в количестве 20 для отдельного домена;
+                    Platform.runLater(() -> {
+                        String CSS =
+                                "body {"
+                                        + "    background-color: #00ff80; "
+                                        + "    font-family: Arial, Helvetica, san-serif;"
+                                        + "}";
+
+                        WebEngine webEngine = webView0.getEngine();
+                        //webEngine.setUserStyleSheetLocation(getClass().getResource("post.css").toString());
+                        webEngine.setUserStyleSheetLocation(CSS);
+                        webView0.getEngine().loadContent(responseList.get(0));
+                    });
                     final List<Item> postList = JsonParser.getPostContent(responseList.get(0)); // Преобразуем JSON в список постов.
                     progressPane.setVisible(false);
 
@@ -87,8 +107,8 @@ public class MainWindowController {
                         Thread.sleep(400);
                     }
                     Platform.runLater(() -> mainStatusBar.setProgress(0));
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
+                    e.printStackTrace();
                     domainInputTextField.clear();
                     domainInputTextField.setPromptText("Такой страницы не существует!");
                     progressPane.setVisible(false);
@@ -112,6 +132,10 @@ public class MainWindowController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void makeSomeRequest() {
+        //
     }
 
     public void domainInputTextFieldClick() {

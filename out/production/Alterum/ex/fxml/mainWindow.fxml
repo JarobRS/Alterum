@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.web.WebView?>
 <?import org.controlsfx.control.MaskerPane?>
 <?import org.controlsfx.control.StatusBar?>
 <?import org.controlsfx.control.ToggleSwitch?>
@@ -31,6 +32,7 @@
                </VBox.margin>
             </Button>
             <ToggleSwitch fx:id="toggleSwitch1" onMouseClicked="#toggleSwitchOnMouseClicked" />
+            <Button fx:id="customButton" mnemonicParsing="false" onAction="#makeSomeRequest" prefHeight="233.0" prefWidth="73.0" text="Button" />
          </children>
          <BorderPane.margin>
             <Insets />
@@ -48,6 +50,7 @@
                <content>
                   <FlowPane fx:id="feedPane" alignment="TOP_CENTER" columnHalignment="CENTER" rowValignment="TOP">
                      <children>
+                        <WebView fx:id="webView0" minHeight="1000.0" prefHeight="200.0" prefWidth="1000.0" />
                         <MaskerPane fx:id="progressPane">
                            <FlowPane.margin>
                               <Insets top="230.0" />
