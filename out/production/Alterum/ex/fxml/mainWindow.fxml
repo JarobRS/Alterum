@@ -2,11 +2,9 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
-<?import org.controlsfx.control.MaskerPane?>
+<?import javafx.scene.web.WebView?>
 <?import org.controlsfx.control.StatusBar?>
 <?import org.controlsfx.control.ToggleSwitch?>
 <?import org.controlsfx.control.textfield.CustomTextField?>
@@ -31,6 +29,7 @@
                </VBox.margin>
             </Button>
             <ToggleSwitch fx:id="toggleSwitch1" onMouseClicked="#toggleSwitchOnMouseClicked" />
+            <Button fx:id="customButton" mnemonicParsing="false" onAction="#makeSomeRequest" prefHeight="233.0" prefWidth="73.0" text="Button" />
          </children>
          <BorderPane.margin>
             <Insets />
@@ -44,20 +43,7 @@
                <VBox.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </VBox.margin></CustomTextField>
-            <ScrollPane fx:id="mainScrollPane" fitToHeight="true" fitToWidth="true" VBox.vgrow="ALWAYS">
-               <content>
-                  <FlowPane fx:id="feedPane" alignment="TOP_CENTER" columnHalignment="CENTER" rowValignment="TOP">
-                     <children>
-                        <MaskerPane fx:id="progressPane">
-                           <FlowPane.margin>
-                              <Insets top="230.0" />
-                           </FlowPane.margin></MaskerPane>
-                     </children></FlowPane>
-               </content>
-               <VBox.margin>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-               </VBox.margin>
-            </ScrollPane>
+            <WebView fx:id="webView" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="-1.0" />
          </children>
       </VBox>
    </center>
