@@ -2,73 +2,72 @@ package ex.ui;
 
 import ex.methods.HtmlParser;
 import ex.methods.Requests;
+import ex.obj.subscriptions.VkSource;
 import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-import org.controlsfx.control.StatusBar;
-import org.controlsfx.control.ToggleSwitch;
 import org.controlsfx.control.textfield.CustomTextField;
 import org.controlsfx.control.textfield.TextFields;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class MainWindowController {
-    @FXML private CustomTextField domainInputTextField;
-    @FXML private StatusBar mainStatusBar;
-    @FXML private ToggleSwitch toggleSwitch1;
+    @FXML private CustomTextField mainInputField;
     @FXML private WebView webView;
     @FXML private VBox mainVBoxRight;
+    @FXML private VBox mainList;
+    private List<VkSource> fullSourceList;
 
     @FXML
     public void initialize() {
-        setupClearButtonField(domainInputTextField);
-        webView.prefWidthProperty().bind(mainVBoxRight.heightProperty());
+        setupClearButtonField(mainInputField);
+        webView.prefWidthProperty().bind(mainVBoxRight.widthProperty());
         webView.prefHeightProperty().bind(mainVBoxRight.heightProperty());
+
+        fullSourceList = new ArrayList<>();
+        updateMainList(fullSourceList);
     }
 
-    public void getDataFromHttpRequest() {
-        if (Requests.getDomain(domainInputTextField.getText()) != null) {
-            Runnable task = () -> {
-                try {
-                    String domain = Requests.getDomain(domainInputTextField.getText());
-                    List<String> domainList = new ArrayList<>();
+    private void getDataFromHttpRequest() {
+        if (Requests.getDomain(mainInputField.getText()) != null) {
+            Runnable task = () -> {                                             //web-запросы в отдельном потоке
+                String domain = Requests.getDomain(mainInputField.getText());
+                String response = Requests.getSourcePostsHtml(domain);
 
-                    domainList.add(domain);
-                    domainList.add("kosmoshturm");
-                    mainStatusBar.setProgress(0.6);
+                Platform.runLater(() -> {
+                    WebEngine webEngine = webView.getEngine();
+                    webEngine.setJavaScriptEnabled(true);
+                    webEngine.setUserStyleSheetLocation(getClass().getResource("css/mainFeed.css").toString());
 
-                    List<String> responseList = Requests.getPostContentHtml(domainList); // Получаем список ответов по каждому домену
-                    Platform.runLater(() -> {
-                        WebEngine webEngine = webView.getEngine();
-                        webEngine.setJavaScriptEnabled(true);
-                        webEngine.setUserStyleSheetLocation(getClass().getResource("styles/mainFeed.css").toString());
-
-                        webView.getEngine().loadContent(HtmlParser.buildFeed(responseList));
-                    });
-
-
-                    Platform.runLater(() -> mainStatusBar.setProgress(0));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    domainInputTextField.clear();
-                    domainInputTextField.setPromptText("Такой страницы не существует!");
-                    throw new IllegalStateException("task interrupted", e);
-                }
+                    VkSource source = HtmlParser.getSource(response);
+                    if(!Objects.equals(source.getName(), "")) {
+                        fullSourceList.add(HtmlParser.getSource(response));
+                        updateMainList(fullSourceList);
+                        webView.getEngine().loadContent(HtmlParser.buildFeed(response));
+                    } else {
+                        webView.getEngine().loadContent("Такой страницы не существует!");
+                    }
+                });
             };
             Thread thread = new Thread(task);
             thread.start();
         } else {
-            domainInputTextField.clear();
-            domainInputTextField.setPromptText("Введена некорректная ссылка!");
+            mainInputField.clear();
+            mainInputField.setPromptText("Введена некорректная ссылка!");
         }
     }
-
 
     private void setupClearButtonField(CustomTextField customTextField) {
         try {
@@ -80,22 +79,51 @@ public class MainWindowController {
         }
     }
 
-    public void makeSomeRequest() {
+    public void mainInputFieldOnClicked() {
+
+        mainInputField.setPromptText("https://vk.com/kosmoshturm");
+    }
+
+    public void mainSandwichButtonOnClick() {
+
         //
     }
 
-    public void domainInputTextFieldClick() {
-        domainInputTextField.setPromptText("https://vk.com/kosmoshturm");
+    public void mainInputFieldOnKeyReleased(KeyEvent e){
+
+        if(e.getCode().equals(KeyCode.ENTER)) {
+            getDataFromHttpRequest();
+        }
+
+        if (!Objects.equals(mainInputField.getText(), "")) {
+            List<VkSource> searchResults = getFilteredData(mainInputField.getText());
+            updateMainList(searchResults);
+        } else {
+            updateMainList(fullSourceList);
+        }
     }
 
-    public void toggleSwitchOnMouseClicked() {
-        if (toggleSwitch1.isSelected())
-            domainInputTextField.setText("https://vk.com/greatredshift");
-        else
-            domainInputTextField.setText("https://vk.com/kosmoshturm");
+    private List<VkSource> getFilteredData(String input) {
+
+        //
+
+        return null;
     }
 
-    public void displayLicenseInfo() {
-        AlertBox.display("License info", "THE SOFTWARE IS PROVIDED \"AS IS\"");
+    private void updateMainList(List<VkSource> sourceList) {
+
+        for (VkSource aSource : sourceList) {
+
+            HBox sourceBox = new HBox();
+            VBox icon = new VBox();
+            VBox desc = new VBox();
+
+            icon.getChildren().addAll(new ImageView(aSource.getIconUrl()));
+            desc.getChildren().add(new Label(aSource.getName()));
+            desc.getChildren().add(new Label(aSource.getLore()));
+            sourceBox.getChildren().addAll(icon, desc);
+
+            mainList.getChildren().add(sourceBox);
+        }
     }
 }

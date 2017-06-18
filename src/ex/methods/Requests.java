@@ -1,5 +1,6 @@
 package ex.methods;
 
+import ex.obj.subscriptions.VkSource;
 import org.apache.http.HeaderElement;
 import org.apache.http.HeaderElementIterator;
 import org.apache.http.HttpResponse;
@@ -19,54 +20,9 @@ import java.util.List;
 
 public class Requests {
 
-    public static List<String> getPostContent(List<String> domainList, int count) {
+    public static String getSourcePostsHtml(String domain) {
 
-        String api_url = "https://api.vk.com/method/";
-        String api_version = "5.65";
-
-        List<String> responseList = new ArrayList<>();
-
-        ConnectionKeepAliveStrategy myStrategy = (response, context) -> {
-            HeaderElementIterator it = new BasicHeaderElementIterator
-                    (response.headerIterator(HTTP.CONN_KEEP_ALIVE));
-            while (it.hasNext()) {
-                HeaderElement he = it.nextElement();
-                String param = he.getName();
-                String value = he.getValue();
-                if (value != null && param.equalsIgnoreCase
-                        ("timeout")) {
-                    return Long.parseLong(value) * 1000;
-                }
-            }
-            return 40 * 1000;
-        };
-
-        HttpClient httpClient = HttpClients.custom()
-                .setDefaultRequestConfig(RequestConfig.custom().setCookieSpec(CookieSpecs.IGNORE_COOKIES).build())
-                .setKeepAliveStrategy(myStrategy)
-                .build();
-
-        HttpPost httpPost = new HttpPost();
-        for (String aDomainList : domainList) {
-            httpPost = new HttpPost(api_url + "wall.get?" +
-                    "domain=" + aDomainList +
-                    "&count=" + count +
-                    "&v=" + api_version);
-            try {
-                HttpResponse response = httpClient.execute(httpPost);
-                responseList.add(EntityUtils.toString(response.getEntity()));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        httpPost.abort();
-        return responseList;
-    }
-
-    public static List<String> getPostContentHtml(List<String> domainList) {
-
-        List<String> responseList = new ArrayList<>();
+        String responseHtml = null;
         String api_url = "https://vk.com/";
 
         ConnectionKeepAliveStrategy myStrategy = (resp, context) -> {
@@ -89,19 +45,18 @@ public class Requests {
                 .setKeepAliveStrategy(myStrategy)
                 .build();
 
-        HttpPost httpPost = new HttpPost();
-        for (String aDomainList : domainList) {
-            httpPost = new HttpPost(api_url + aDomainList);
-            try {
-                HttpResponse response = httpClient.execute(httpPost);
-                responseList.add(EntityUtils.toString(response.getEntity()));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        HttpPost httpPost = new HttpPost(api_url + domain);
+        try {
+            HttpResponse response = httpClient.execute(httpPost);
+            responseHtml = EntityUtils.toString(response.getEntity());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         httpPost.abort();
-        return responseList;
+
+        assert responseHtml != null;
+        return responseHtml;
     }
 
     static String getUserInfo(String domainID) {

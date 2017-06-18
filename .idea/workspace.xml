@@ -1,42 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Alterum:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/methods/JsonParser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/methods/PostBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/methods/JsonParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/methods/PostBuilder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Answer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Attachment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Audio.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Category.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Comments.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/CopyHistory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Currency.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Doc.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Item.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Likes.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Link.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Market.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Page.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Photo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Poll.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/PostList.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/PostSource.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Preview.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Price.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Reposts.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Response.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Section.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Size.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Video.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Views.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/commons-codec-1.6.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/commons-logging-1.1.1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/fastjson-1.2.31.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/fastjson-1.2.32.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/gson-1.1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/gson-1.1_2.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/httpclient-4.3-beta1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/httpclient-4.5.2.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/httpcore-4.3-beta1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/httpcore-4.4.4.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Answer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Attachment.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Audio.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Category.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Comments.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/CopyHistory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Currency.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Doc.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Item.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Likes.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Link.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Market.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Page.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Photo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Poll.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/PostList.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/PostSource.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Preview.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Price.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Reposts.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Response.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Section.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Size.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Video.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/obj/wall/Views.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/ui/AlertBox.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/ui/ConfirmBox.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/ui/styles/mainFeed.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/ui/AlertBox.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ex/ui/ConfirmBox.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ex/ui/styles/mainFeed.css" afterPath="$PROJECT_DIR$/src/ex/ui/css/mainFeed.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/Main.class" afterPath="$PROJECT_DIR$/out/production/Alterum/ex/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/methods/HtmlParser.class" afterPath="$PROJECT_DIR$/out/production/Alterum/ex/methods/HtmlParser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/methods/Requests.class" afterPath="$PROJECT_DIR$/out/production/Alterum/ex/methods/Requests.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/ui/MainWindowController.class" afterPath="$PROJECT_DIR$/out/production/Alterum/ex/ui/MainWindowController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Alterum.iml" afterPath="$PROJECT_DIR$/Alterum.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/fxml/mainWindow.fxml" afterPath="$PROJECT_DIR$/out/production/Alterum/ex/fxml/mainWindow.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ex/Main.java" afterPath="$PROJECT_DIR$/src/ex/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ex/fxml/mainWindow.fxml" afterPath="$PROJECT_DIR$/src/ex/fxml/mainWindow.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ex/methods/HtmlParser.java" afterPath="$PROJECT_DIR$/src/ex/methods/HtmlParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ex/methods/Requests.java" afterPath="$PROJECT_DIR$/src/ex/methods/Requests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ex/obj/wall/Post.java" afterPath="$PROJECT_DIR$/src/ex/obj/wall/Post.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ex/ui/MainWindowController.java" afterPath="$PROJECT_DIR$/src/ex/ui/MainWindowController.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -50,7 +73,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Alterum$Main.coverage" NAME="Main Coverage Results" MODIFIED="1497473730372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Alterum$Main.coverage" NAME="Main Coverage Results" MODIFIED="1497818554233" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ex.ui.*</FILTER>
     </SUITE>
   </component>
@@ -104,8 +127,63 @@
       <file leaf-file-name="MainWindowController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ex/ui/MainWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+            <state relative-caret-position="-353">
+              <caret line="55" column="24" lean-forward="false" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#mainInputFieldOnClicked#0;class#MainWindowController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Serializer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ex/methods/Serializer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#312#313#0" expanded="true" />
+                <element signature="e#356#357#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LocalDataOperations.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ex/methods/LocalDataOperations.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Requests.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ex/methods/Requests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="184" column="24" lean-forward="false" selection-start-line="184" selection-start-column="24" selection-end-line="184" selection-end-column="24" />
+              <folding>
+                <element signature="method#getSourcePostsHtml#0;class#Requests#0" expanded="false" />
+                <element signature="method#getUserInfo#0;class#Requests#0" expanded="false" />
+                <element signature="method#getUserShortInfo#0;class#Requests#0" expanded="false" />
+                <element signature="method#getCommutityInfo#0;class#Requests#0" expanded="false" />
+                <element signature="method#getCommutityShortInfo#0;class#Requests#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ex/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="26" column="1" lean-forward="false" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -114,10 +192,18 @@
       <file leaf-file-name="HtmlParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ex/methods/HtmlParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-105">
-              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="416">
+              <caret line="35" column="9" lean-forward="false" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#checkForUnauthorizedAccess#0;class#HtmlParser#0" expanded="false" />
+                <element signature="method#checkForEmptyWall#0;class#HtmlParser#0" expanded="false" />
+                <element signature="method#getFeedVisualComponents#0;class#HtmlParser#0" expanded="false" />
+                <element signature="method#deleteTrashBlocks#0;class#HtmlParser#0" expanded="false" />
+                <element signature="method#clearFeed#0;class#HtmlParser#0" expanded="false" />
+                <element signature="method#extractPosts#0;class#HtmlParser#0" expanded="false" />
+                <element signature="method#addPosts#0;class#HtmlParser#0" expanded="false" />
+                <element signature="method#addScripts#0;class#HtmlParser#0" expanded="false" />
+                <element signature="method#getSource#0;class#HtmlParser#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -129,6 +215,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS Wrap" />
+        <option value="JavaScript file" />
         <option value="CSS Stylesheet" />
         <option value="Class" />
       </list>
@@ -145,6 +232,13 @@
       <find>info</find>
       <find>70px</find>
       <find>margin-top:15px</find>
+      <find>showMore</find>
+      <find>margin-left:</find>
+      <find>margin:</find>
+      <find>body {</find>
+      <find>wide_column</find>
+      <find>body</find>
+      <find>.medadd_inline_editable_icon,.page_cover_menu,</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -164,18 +258,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/sample/obj/objPost.java" />
-        <option value="$PROJECT_DIR$/src/ex/obj/attachment.java" />
-        <option value="$PROJECT_DIR$/src/ex/GUI/mainWindowController.java" />
-        <option value="$PROJECT_DIR$/src/ex/obj/objPostData/comments.java" />
-        <option value="$PROJECT_DIR$/src/ex/obj/objPostData/likes.java" />
-        <option value="$PROJECT_DIR$/src/ex/obj/objPostData/reposts.java" />
-        <option value="$PROJECT_DIR$/src/ex/obj/objPostData/types/poll.java" />
-        <option value="$PROJECT_DIR$/src/ex/obj/objPost.java" />
-        <option value="$PROJECT_DIR$/src/ex/obj/objPostData/attachment.java" />
-        <option value="$PROJECT_DIR$/src/ex/obj/objPostData/types/Photo.java" />
-        <option value="$PROJECT_DIR$/src/ex/obj/objPostData/types/Poll.java" />
-        <option value="$PROJECT_DIR$/src/ex/obj/objPostData/types/Doc.java" />
         <option value="$PROJECT_DIR$/src/ex/obj/Feed.java" />
         <option value="$PROJECT_DIR$/src/ex/obj/ObjPost.java" />
         <option value="$PROJECT_DIR$/src/ex/obj/objPostData/Response.java" />
@@ -193,7 +275,6 @@
         <option value="$PROJECT_DIR$/src/ex/obj/Post.java" />
         <option value="$PROJECT_DIR$/src/ex/obj/T.java" />
         <option value="$PROJECT_DIR$/src/ex/methods/jsonParser.java" />
-        <option value="$PROJECT_DIR$/src/ex/Main.java" />
         <option value="$PROJECT_DIR$/src/ex/methods/feedControl.java" />
         <option value="$PROJECT_DIR$/src/ex/obj/PostList.java" />
         <option value="$PROJECT_DIR$/src/ex/threads/Requests.java" />
@@ -209,21 +290,34 @@
         <option value="$PROJECT_DIR$/src/ex/ui/TextAreaDemo.java" />
         <option value="$PROJECT_DIR$/src/ex/methods/PostBuilder.java" />
         <option value="$PROJECT_DIR$/src/ex/methods/JsonParser.java" />
-        <option value="$PROJECT_DIR$/src/ex/methods/HtmlParser.java" />
-        <option value="$PROJECT_DIR$/src/ex/obj/wall/Post.java" />
-        <option value="$PROJECT_DIR$/src/ex/methods/Requests.java" />
-        <option value="$PROJECT_DIR$/src/ex/ui/MainWindowController.java" />
         <option value="$PROJECT_DIR$/src/ex/fxml/mainWindow.fxml" />
         <option value="$PROJECT_DIR$/src/ex/ui/styles/mainFeed.css" />
+        <option value="$PROJECT_DIR$/src/ex/ui/css/al/ui_common.css" />
+        <option value="$PROJECT_DIR$/src/ex/ui/css/al/page.css" />
+        <option value="$PROJECT_DIR$/src/ex/ui/css/al/common.css" />
+        <option value="$PROJECT_DIR$/src/ex/ui/js/al/page.js" />
+        <option value="$PROJECT_DIR$/src/ex/style/main.css" />
+        <option value="$PROJECT_DIR$/src/ex/obj/wall/Post.java" />
+        <option value="$PROJECT_DIR$/src/ex/obj/subscriptions/VkSource.java" />
+        <option value="$PROJECT_DIR$/src/ex/methods/Requests.java" />
+        <option value="$PROJECT_DIR$/src/ex/methods/LocalDataOperations.java" />
+        <option value="$PROJECT_DIR$/src/ex/resources/main.css" />
+        <option value="$PROJECT_DIR$/src/ex/methods/HtmlParser.java" />
+        <option value="$PROJECT_DIR$/src/ex/ui/css/mainFeed.css" />
+        <option value="$PROJECT_DIR$/src/ex/Main.java" />
+        <option value="$PROJECT_DIR$/src/ex/methods/xmlSerealizer.java" />
+        <option value="$PROJECT_DIR$/src/ex/methods/XmlSerealizer.java" />
+        <option value="$PROJECT_DIR$/src/ex/methods/Serializer.java" />
+        <option value="$PROJECT_DIR$/src/ex/ui/MainWindowController.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-69" />
-    <option name="y" value="657" />
-    <option name="width" value="1916" />
-    <option name="height" value="1046" />
+    <option name="x" value="-2" />
+    <option name="y" value="26" />
+    <option name="width" value="1922" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -246,8 +340,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -267,6 +362,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Alterum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Alterum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Alterum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -328,7 +437,111 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Alterum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Alterum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Alterum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Alterum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="obj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Alterum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Alterum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="subscriptions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Alterum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Alterum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -378,7 +591,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -398,20 +610,30 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/controlsfx-8.40.12.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/xstream-distribution-1.4.10-bin.zip!/" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$/lib" />
+    <property name="GenerateAntBuildDialog.generateSingleFile" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="alterum" />
+    <property name="AnalyzeApkAction.lastApkPath" value="$PROJECT_DIR$/out/artifacts/JavaFXApp" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="ex.obj" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ex/resources" />
+      <recent name="$PROJECT_DIR$/src/ex/style" />
+      <recent name="$PROJECT_DIR$/src/ex/ui" />
+      <recent name="$PROJECT_DIR$/src/ex" />
+      <recent name="$PROJECT_DIR$/src/sample/GUIfxml" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="ex.methods" />
       <recent name="sample" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/sample/GUIfxml" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ex.obj" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -728,7 +950,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-69" y="657" width="1916" height="1046" extended-state="0" />
+    <frame x="-2" y="26" width="1922" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -741,13 +963,14 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25663716" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25382933" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32822758" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2926045" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29807693" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -763,7 +986,6 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -782,7 +1004,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="69" />
+      <option name="time" value="118" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -791,35 +1013,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/objPostData/Photo.java" />
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/ObjPost.java" />
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/objPostData/Attachments.java" />
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/objPostData/Response.java" />
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/objPostData/PostList.java" />
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/Feed.java" />
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/T.java" />
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Video.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-992">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ex/obj/response.java" />
-    <entry file="file://$PROJECT_DIR$/src/ex/ui/AlertBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ex/threads/Requests0.java" />
     <entry file="file://$PROJECT_DIR$/src/ex/threads/ThreadPoolExample.java" />
     <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Runnable.class">
@@ -829,113 +1023,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Audio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Comments.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Doc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Likes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Link.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Audio.java" />
+    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Comments.java" />
+    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Doc.java" />
+    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Likes.java" />
+    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Link.java" />
     <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Note.java" />
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Page.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Photo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Poll.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/PostSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Attachment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-80">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Page.java" />
+    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Photo.java" />
+    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Poll.java" />
+    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/PostSource.java" />
+    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Attachment.java" />
     <entry file="file://$PROJECT_DIR$/src/ex/methods/FeedControl.java" />
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/PostList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/CopyHistory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="31" column="19" lean-forward="true" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-32">
-          <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Answer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="13" column="25" lean-forward="false" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Response.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/PostList.java" />
+    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/CopyHistory.java" />
+    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Item.java" />
+    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Answer.java" />
+    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Response.java" />
     <entry file="file://$PROJECT_DIR$/src/ex/obj/sources/user/Domain.java" />
     <entry file="file://$PROJECT_DIR$/src/ex/obj/sources/user/Response.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -990,69 +1094,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/methods/JsonParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="45" column="4" lean-forward="false" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Post.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding>
-            <element signature="e#174#175#0" expanded="true" />
-            <element signature="e#213#214#0" expanded="true" />
-            <element signature="e#247#248#0" expanded="true" />
-            <element signature="e#282#283#0" expanded="true" />
-            <element signature="e#331#332#0" expanded="true" />
-            <element signature="e#372#373#0" expanded="true" />
-            <element signature="e#407#408#0" expanded="true" />
-            <element signature="e#442#443#0" expanded="true" />
-            <element signature="e#491#492#0" expanded="true" />
-            <element signature="e#532#533#0" expanded="true" />
-            <element signature="e#567#568#0" expanded="true" />
-            <element signature="e#603#604#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/methods/PostBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2176">
-          <caret line="23" column="35" lean-forward="false" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex/methods/JsonParser.java" />
+    <entry file="file://$PROJECT_DIR$/src/ex/methods/PostBuilder.java" />
     <entry file="file://$PROJECT_DIR$/src/ex/fxml/mainWindow.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="40" column="19" lean-forward="true" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex/ui/css/al/ui_common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="67925" lean-forward="false" selection-start-line="0" selection-start-column="67925" selection-end-line="0" selection-end-column="67925" />
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/ui/styles/mainFeed.css">
+    <entry file="file://$PROJECT_DIR$/src/ex/ui/css/al/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="9165" column="220" lean-forward="false" selection-start-line="9165" selection-start-column="220" selection-end-line="9165" selection-end-column="220" />
+        <state relative-caret-position="624">
+          <caret line="6202" column="0" lean-forward="true" selection-start-line="6202" selection-start-column="0" selection-end-line="6202" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex/ui/css/al/page.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="0" column="130835" lean-forward="false" selection-start-line="0" selection-start-column="130835" selection-end-line="0" selection-end-column="130835" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex/ui/js/al/page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="12" column="81" lean-forward="false" selection-start-line="12" selection-start-column="81" selection-end-line="12" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex/ui/AlertBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex/obj/subscriptions/VkSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Post.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex/resources/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="37" column="48" lean-forward="false" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex/ui/css/mainFeed.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="9119" column="46" lean-forward="false" selection-start-line="9119" selection-start-column="0" selection-end-line="9119" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="26" column="1" lean-forward="false" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ex/methods/Requests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="280" column="0" lean-forward="false" selection-start-line="280" selection-start-column="0" selection-end-line="280" selection-end-column="0" />
+        <state relative-caret-position="224">
+          <caret line="184" column="24" lean-forward="false" selection-start-line="184" selection-start-column="24" selection-end-line="184" selection-end-column="24" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getPostContent#0;class#Requests#0" expanded="false" />
+            <element signature="method#getSourcePostsHtml#0;class#Requests#0" expanded="false" />
             <element signature="method#getUserInfo#0;class#Requests#0" expanded="false" />
             <element signature="method#getUserShortInfo#0;class#Requests#0" expanded="false" />
             <element signature="method#getCommutityInfo#0;class#Requests#0" expanded="false" />
@@ -1063,19 +1203,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ex/methods/HtmlParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="416">
+          <caret line="35" column="9" lean-forward="false" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+          <folding>
+            <element signature="method#checkForUnauthorizedAccess#0;class#HtmlParser#0" expanded="false" />
+            <element signature="method#checkForEmptyWall#0;class#HtmlParser#0" expanded="false" />
+            <element signature="method#getFeedVisualComponents#0;class#HtmlParser#0" expanded="false" />
+            <element signature="method#deleteTrashBlocks#0;class#HtmlParser#0" expanded="false" />
+            <element signature="method#clearFeed#0;class#HtmlParser#0" expanded="false" />
+            <element signature="method#extractPosts#0;class#HtmlParser#0" expanded="false" />
+            <element signature="method#addPosts#0;class#HtmlParser#0" expanded="false" />
+            <element signature="method#addScripts#0;class#HtmlParser#0" expanded="false" />
+            <element signature="method#getSource#0;class#HtmlParser#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex/methods/LocalDataOperations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex/methods/Serializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#312#313#0" expanded="true" />
+            <element signature="e#356#357#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ex/ui/MainWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-          <folding />
+        <state relative-caret-position="-353">
+          <caret line="55" column="24" lean-forward="false" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#mainInputFieldOnClicked#0;class#MainWindowController#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1110,7 +1283,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
-          <last-edited>org.jsoup:jsoup:1.10.3</last-edited>
+          <last-edited>com.thoughtworks.xstream:xstream:1.4.10</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

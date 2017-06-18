@@ -29,9 +29,4 @@ public class Post {
     public String getAuthorID() {
         return this.authorID;
     }
-
-
-
-
-
 }

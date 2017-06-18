@@ -16,9 +16,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("fxml/mainWindow.fxml"));
-        Stage window = primaryStage;
-        window.setScene(new Scene(root));
-        window.setTitle("Alterum");
-        window.show();
+        primaryStage.setMinWidth(1020);
+        primaryStage.setMinHeight(450);
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("resources/main.css").toExternalForm());
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Alterum");
+        primaryStage.show();
     }
 }
