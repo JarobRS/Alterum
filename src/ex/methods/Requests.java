@@ -1,6 +1,5 @@
 package ex.methods;
 
-import ex.obj.subscriptions.VkSource;
 import org.apache.http.HeaderElement;
 import org.apache.http.HeaderElementIterator;
 import org.apache.http.HttpResponse;
@@ -15,15 +14,17 @@ import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Requests {
 
-    public static String getSourcePostsHtml(String domain) {
+    public static String getDomainContent(String domain, Boolean useMobileVersion) {
 
         String responseHtml = null;
-        String api_url = "https://vk.com/";
+        String api_url;
+        if (useMobileVersion)
+            api_url = "https://m.vk.com/";
+        else
+            api_url = "https://vk.com/";
 
         ConnectionKeepAliveStrategy myStrategy = (resp, context) -> {
             HeaderElementIterator it = new BasicHeaderElementIterator
@@ -222,13 +223,12 @@ public class Requests {
         return responseString;
     }
 
-    public static String getDomain(String domain) {
-        domain = domain.toLowerCase();
-        domain = domain.trim();
-        if (domain.matches("^((https|http)(:)(/)(/)(www.vk.com|vk.com)(/)(?:[a-z0-9_]*))|((www.vk.com|vk.com)(/)(?:[a-z0-9_]]*))$")) {
-            domain = domain.replaceFirst("^((https|http)(:)(/)(/)(www.vk.com|vk.com)(/))|((www.vk.com|vk.com)(/))$","");
-            domain = domain.replaceFirst("^((www.vk.com|vk.com)(/))|((https|http)(:)(/)(/)(www.vk.com|vk.com)(/))$","");
-            return domain;
+    public static String getDomain(String input) {
+        input = input.trim().toLowerCase();
+        if (input.matches("^((https|http)(:)(/)(/)(vk.com|m.vk.com)(/)(?:[a-z0-9_]*))|((www.vk.com|vk.com)(/)(?:[a-z0-9_]]*))$")) {
+            input = input.replaceFirst("^((https|http)(:)(/)(/)(vk.com|m.vk.com)(/))|((www.vk.com|vk.com)(/))$","");
+            input = input.replaceFirst("^((vk.com|m.vk.com)(/))|((https|http)(:)(/)(/)(www.vk.com|vk.com)(/))$","");
+            return input;
         } else
             return null;
     }

@@ -2,6 +2,14 @@ package ex.methods;
 
 import ex.obj.subscriptions.VkSource;
 import ex.obj.wall.Post;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -45,7 +53,6 @@ public class HtmlParser {
     private static boolean checkForEmptyWall(String rawHtml) {
 
         Document doc = Jsoup.parse(rawHtml);
-        System.out.println(doc.body().getElementsByAttributeValue("id", "page_wall_count_all").attr("value"));
         return !Objects.equals(doc.body().getElementsByAttributeValue("id", "page_wall_count_all").attr("value"), "0");
     }
 
@@ -79,7 +86,7 @@ public class HtmlParser {
         Document doc = Jsoup.parse(rawHtml);
         Elements posts = doc.body().getElementsByAttributeValue("class", "wall_module");
 
-        for (int i=0; i < posts.get(0).children().size(); i++){
+        for (int i = 0; i < posts.get(0).children().size(); i++) {
             Post post = new Post();
 
             try {
@@ -88,7 +95,8 @@ public class HtmlParser {
                 post.setDateTime(null);
 
                 postList.add(post);
-            } catch (Exception ignored) {}
+            } catch (Exception ignored) {
+            }
         }
 
         return postList;
@@ -115,14 +123,42 @@ public class HtmlParser {
         return mainContent.html();
     }
 
-    public static VkSource getSource(String rawHtml) {
+    public static VkSource getSource(String rawHtml, String domain) {
 
         Document doc = Jsoup.parse(rawHtml);
         VkSource source = new VkSource();
 
-        source.setName(doc.body().getElementsByAttributeValue("class", "page_name").text());
-        source.setLore(doc.body().getElementsByAttributeValue("class", "current_text").text());
-        source.setIconUrl(doc.body().getElementsByAttributeValue("class", "post_img").attr("src"));
+        source.setName(doc.body().getElementsByAttributeValue("class", "op_header").text());
+        source.setLore(doc.body().getElementsByAttributeValue("class", "pp_status").text());
+        source.setDomain(domain);
+        source.setIconUrl(doc.body().getElementsByAttributeValue("class", "pp_img").attr("src"));
+
+        if (Objects.equals(source.getName(), ""))
+            return null;
+
+        GridPane sourceBox = new GridPane();
+        sourceBox.setId("sourceBox");
+
+        if (!Objects.equals(source.getIconUrl(), "")) {
+            ImageView icon = new ImageView(source.getIconUrl());
+            icon.setFitHeight(50);
+            icon.setFitWidth(50);
+            sourceBox.add(icon, 0, 0);
+        } else {
+            Label customIcon = new Label(String.valueOf(source.getName().toUpperCase().charAt(0)));
+            customIcon.setMinSize(50, 50);
+            customIcon.setAlignment(Pos.CENTER);
+            customIcon.setStyle("-fx-background-color: #C1C5CC;");
+            customIcon.setFont(new Font("Arial", 36));
+            sourceBox.add(customIcon, 0, 0);
+        }
+
+        VBox desc = new VBox();
+        desc.setPadding(new Insets(2,0,2,6));
+        desc.getChildren().add(new Label(source.getName()));
+        desc.getChildren().add(new Label(source.getLore()));
+        sourceBox.add(desc, 1, 0);
+        source.setBody(sourceBox);
 
         return source;
     }

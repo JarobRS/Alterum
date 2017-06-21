@@ -16,8 +16,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("fxml/mainWindow.fxml"));
-        primaryStage.setMinWidth(1020);
-        primaryStage.setMinHeight(450);
+        primaryStage.setMinWidth(1000);
+        primaryStage.setMinHeight(438);
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("resources/main.css").toExternalForm());
         primaryStage.setScene(scene);

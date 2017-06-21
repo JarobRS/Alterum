@@ -11,7 +11,7 @@
 <?import javafx.scene.web.WebView?>
 <?import org.controlsfx.control.textfield.CustomTextField?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="686.0" prefWidth="1002.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ex.ui.MainWindowController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="686.0" prefWidth="993.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ex.MainWindowController">
    <left>
       <VBox prefHeight="656.0" prefWidth="412.0" BorderPane.alignment="CENTER">
          <children>
@@ -32,7 +32,7 @@
                         <Insets bottom="2.0" left="2.0" top="2.0" />
                      </HBox.margin>
                   </VBox>
-                  <CustomTextField fx:id="mainInputField" onKeyReleased="#mainInputFieldOnKeyReleased" onMouseClicked="#mainInputFieldOnClicked" prefHeight="35.0" prefWidth="342.0" HBox.hgrow="ALWAYS">
+                  <CustomTextField fx:id="mainInputField" prefHeight="35.0" prefWidth="342.0" HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="KacstBook" size="13.0" />
                      </font>
@@ -53,9 +53,9 @@
       </VBox>
    </left>
    <center>
-      <VBox fx:id="mainVBoxRight" alignment="TOP_CENTER" prefHeight="656.0" prefWidth="655.0" BorderPane.alignment="BOTTOM_RIGHT">
+      <VBox fx:id="mainVBoxRight" alignment="TOP_CENTER" prefHeight="686.0" prefWidth="596.0" BorderPane.alignment="BOTTOM_RIGHT">
          <children>
-            <WebView fx:id="webView" minHeight="-Infinity" prefHeight="462.0" prefWidth="-1.0" />
+            <WebView fx:id="webView" minHeight="-Infinity" prefHeight="144.0" prefWidth="590.0" />
          </children>
       </VBox>
    </center>
