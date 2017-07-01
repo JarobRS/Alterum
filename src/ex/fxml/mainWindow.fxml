@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.web.WebView?>
 <?import org.controlsfx.control.textfield.CustomTextField?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="686.0" prefWidth="993.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ex.MainWindowController">
@@ -21,7 +20,7 @@
                      <children>
                         <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../resources/sandwichIcon.png" />
+                              <Image url="@../resources/menu.png" />
                            </image>
                            <VBox.margin>
                               <Insets left="10.0" right="10.0" />
@@ -41,11 +40,7 @@
                      </HBox.margin>
                   </CustomTextField>
                </children></HBox>
-            <ScrollPane fx:id="mainListContainer" prefHeight="530.0" prefWidth="412.0" VBox.vgrow="ALWAYS">
-               <content>
-                  <VBox fx:id="mainList" maxWidth="394.0" prefHeight="226.0" prefWidth="394.0" />
-               </content>
-            </ScrollPane>
+            <ScrollPane fx:id="mainListContainer" prefHeight="530.0" prefWidth="412.0" VBox.vgrow="ALWAYS" />
          </children>
          <BorderPane.margin>
             <Insets />
@@ -53,10 +48,6 @@
       </VBox>
    </left>
    <center>
-      <VBox fx:id="mainVBoxRight" alignment="TOP_CENTER" prefHeight="686.0" prefWidth="596.0" BorderPane.alignment="BOTTOM_RIGHT">
-         <children>
-            <WebView fx:id="webView" minHeight="-Infinity" prefHeight="144.0" prefWidth="590.0" />
-         </children>
-      </VBox>
+      <VBox fx:id="mainVBoxRight" alignment="TOP_CENTER" BorderPane.alignment="BOTTOM_RIGHT" />
    </center>
 </BorderPane>

@@ -4,7 +4,6 @@ import ex.obj.subscriptions.VkSource;
 import ex.obj.wall.Post;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -24,36 +23,66 @@ public class HtmlParser {
     public static String buildFeed(String rawHtml) {
 
         StringBuilder mainContent = new StringBuilder();
-
         String feed = getFeedVisualComponents(rawHtml);
 
-        if (checkForUnauthorizedAccess(feed) && checkForEmptyWall(feed)) {
-            feed = deleteTrashBlocks(feed);
+        if (checkForAuthorizedAccess(feed)) {
+            if (checkForFilledWall(feed)) {
+                if (checkForGroupOpened(feed)) {
+                    feed = deleteTrashBlocks(feed);
+                    List<Post> postList = extractPosts(feed);
+                    feed = clearFeed(feed);
+                    feed = addPosts(feed, postList);
+                    feed = addScripts(feed, rawHtml);
+                    mainContent.append(feed);
 
-            List<Post> postList = extractPosts(feed);
-
-            feed = clearFeed(feed);
-            feed = addPosts(feed, postList);
-
-            feed = addScripts(feed, rawHtml);
-            mainContent.append(feed);
-
-            return mainContent.toString();
+                    return mainContent.toString();
+                } else {
+                    return generateMessage("Это закрытое сообщество", "К сожалению, закрытые сообщества для вас недоступны.");
+                }
+            } else
+                return generateMessage("На стене пока нет ни одной записи", "Возможно, они появятся позже.");
         } else {
-            return feed;
+            return generateMessage("Стена скрыта от неавторизованных пользвателей", "Похоже, владелец аккаунта запретил просмотр своей страницы неавторизованным пользователям.");
         }
     }
 
-    private static boolean checkForUnauthorizedAccess(String rawHtml) {
+    private static String generateMessage(String header, String lore) {
+
+        String message = "<div class=\"page_block\"> " +
+                " <div id=\"page_info_wrap\" class=\"page_info_wrap\">" +
+                "  <div id=\"profile_info\">" +
+                "   <div class=\"page_top\">" +
+                "    <div class=\"page_current_info\" id=\"page_current_info\">" +
+                header +
+                "    </div>" +
+                "   </div>" +
+                "   <h5 class=\"profile_deleted_text\">" +
+                lore +
+                "</h5>" +
+                "  </div>" +
+                " </div>" +
+                "</div>";
+
+        return message;
+    }
+
+    private static boolean checkForAuthorizedAccess(String rawHtml) {
 
         Document doc = Jsoup.parse(rawHtml);
         return Objects.equals(doc.body().getElementsByAttributeValue("class", "profile_deleted_text").html(), "");
     }
 
-    private static boolean checkForEmptyWall(String rawHtml) {
+    private static boolean checkForFilledWall(String rawHtml) {
 
         Document doc = Jsoup.parse(rawHtml);
-        return !Objects.equals(doc.body().getElementsByAttributeValue("id", "page_wall_count_all").attr("value"), "0");
+
+        return !Objects.equals(doc.body().getElementsByAttributeValue("class", "_post post page_block all own post_fixed").html(), "");
+    }
+
+    private static boolean checkForGroupOpened(String rawHtml) {
+
+        Document doc = Jsoup.parse(rawHtml);
+        return Objects.equals(doc.body().getElementsByAttributeValue("class", "group_closed_text").text(), "");
     }
 
     private static String getFeedVisualComponents(String rawHtml) {
@@ -107,8 +136,11 @@ public class HtmlParser {
         Document feed = Jsoup.parse(rawHtml);
         Element div = feed.body().getElementsByAttributeValue("id", "page_wall_posts").get(0);
 
-        for (Post aPost : postList)
-            div.append(Jsoup.parse(aPost.getContent()).html());
+        for (Post aPost : postList) {
+            String postDiv = Jsoup.parse(aPost.getContent()).html();
+            postDiv = addPropertiesButtonToPost(postDiv);
+            div.append(postDiv);
+        }
 
         return feed.html();
     }
@@ -118,9 +150,21 @@ public class HtmlParser {
         Document scripts = Jsoup.parse(rawHtml);
         Document mainContent = Jsoup.parse(feed);
 
-        mainContent.head().html(scripts.head().html());
+        mainContent.head().html(scripts.head().html() +
+                "<script language='javascript'> function callJfxOperations() {" +
+                "jfxOperations.saveToBookmarks();" +
+                "}</script>");
 
         return mainContent.html();
+    }
+
+    private static String addPropertiesButtonToPost(String postDiv) {
+
+        Document post = Jsoup.parse(postDiv);
+        Elements div = post.body().getElementsByAttributeValue("class", "ui_actions_menu_wrap _ui_menu_wrap");
+        div.append("<button onclick='callJfxOperations();'>Сохранить в закладки</button>");
+
+        return post.html();
     }
 
     public static VkSource getSource(String rawHtml, String domain) {
@@ -128,7 +172,7 @@ public class HtmlParser {
         Document doc = Jsoup.parse(rawHtml);
         VkSource source = new VkSource();
 
-        source.setName(doc.body().getElementsByAttributeValue("class", "op_header").text());
+        source.setName(doc.body().getElementsByAttributeValueContaining("class", "op_header").text());
         source.setLore(doc.body().getElementsByAttributeValue("class", "pp_status").text());
         source.setDomain(domain);
         source.setIconUrl(doc.body().getElementsByAttributeValue("class", "pp_img").attr("src"));
@@ -139,7 +183,9 @@ public class HtmlParser {
         GridPane sourceBox = new GridPane();
         sourceBox.setId("sourceBox");
 
-        if (!Objects.equals(source.getIconUrl(), "")) {
+        if (!Objects.equals(source.getIconUrl(), "")
+                && !Objects.equals(source.getIconUrl(), "/images/deactivated_hid_100.gif")
+                && !Objects.equals(source.getIconUrl(), "/images/community_100.png")) {
             ImageView icon = new ImageView(source.getIconUrl());
             icon.setFitHeight(50);
             icon.setFitWidth(50);

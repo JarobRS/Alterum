@@ -225,9 +225,11 @@ public class Requests {
 
     public static String getDomain(String input) {
         input = input.trim().toLowerCase();
-        if (input.matches("^((https|http)(:)(/)(/)(vk.com|m.vk.com)(/)(?:[a-z0-9_]*))|((www.vk.com|vk.com)(/)(?:[a-z0-9_]]*))$")) {
-            input = input.replaceFirst("^((https|http)(:)(/)(/)(vk.com|m.vk.com)(/))|((www.vk.com|vk.com)(/))$","");
-            input = input.replaceFirst("^((vk.com|m.vk.com)(/))|((https|http)(:)(/)(/)(www.vk.com|vk.com)(/))$","");
+
+        if (input.matches("^((https|http)(:)(/)(/)(www.vk.com|www.m.vk.com|vk.com|m.vk.com)(/)(?:[a-z0-9_]*))|((www.vk.com|www.m.vk.com|vk.com|m.vk.com)(/)(?:[a-z0-9_]*))$")
+                || input.matches("^(?:[a-z0-9_]*)$")) {
+            input = input.replaceFirst("^((https|http)(:)(/)(/)(www.vk.com|www.m.vk.com|vk.com|m.vk.com)(/))", "");
+            input = input.replaceFirst("^((www.vk.com|www.m.vk.com|vk.com|m.vk.com)(/))","");
             return input;
         } else
             return null;
