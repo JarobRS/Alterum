@@ -7,7 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/methods/HtmlParser.class" afterPath="$PROJECT_DIR$/out/production/Alterum/ex/methods/HtmlParser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Alterum/ex/ui/ControlPanel.class" afterPath="$PROJECT_DIR$/out/production/Alterum/ex/ui/ControlPanel.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ex/methods/HtmlParser.java" afterPath="$PROJECT_DIR$/src/ex/methods/HtmlParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ex/ui/ControlPanel.java" afterPath="$PROJECT_DIR$/src/ex/ui/ControlPanel.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,11 +78,9 @@
       <file leaf-file-name="MainWindowController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ex/MainWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-72">
+            <state relative-caret-position="1280">
               <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
               <folding>
-                <element signature="e#2150#2981#0" expanded="true" />
-                <element signature="e#2980#2981#0" expanded="true" />
                 <element signature="class#Bridge#0;class#MainWindowController#0" expanded="false" />
                 <element signature="e#3310#3311#0" expanded="true" />
                 <element signature="e#3359#3360#0" expanded="true" />
@@ -90,33 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HtmlParser.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ex/methods/HtmlParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="74" column="63" lean-forward="true" selection-start-line="74" selection-start-column="63" selection-end-line="74" selection-end-column="63" />
-              <folding>
-                <element signature="method#generateMessage#0;class#HtmlParser#0" expanded="false" />
-                <element signature="method#checkForAuthorizedAccess#0;class#HtmlParser#0" expanded="false" />
-                <element signature="method#checkForGroupOpened#0;class#HtmlParser#0" expanded="false" />
-                <element signature="method#getFeedVisualComponents#0;class#HtmlParser#0" expanded="false" />
-                <element signature="method#deleteTrashBlocks#0;class#HtmlParser#0" expanded="false" />
-                <element signature="method#clearFeed#0;class#HtmlParser#0" expanded="false" />
-                <element signature="method#extractPosts#0;class#HtmlParser#0" expanded="false" />
-                <element signature="method#addPosts#0;class#HtmlParser#0" expanded="false" />
-                <element signature="method#addScripts#0;class#HtmlParser#0" expanded="false" />
-                <element signature="method#addPropertiesButtonToPost#0;class#HtmlParser#0" expanded="false" />
-                <element signature="method#getSource#0;class#HtmlParser#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ControlPanel.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ControlPanel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ex/ui/ControlPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="48" column="86" lean-forward="false" selection-start-line="48" selection-start-column="86" selection-end-line="48" selection-end-column="86" />
+            <state relative-caret-position="95">
+              <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -127,7 +107,7 @@
       <file leaf-file-name="MainList.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ex/ui/MainList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
+            <state relative-caret-position="256">
               <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
@@ -255,9 +235,9 @@
         <option value="$PROJECT_DIR$/src/ex/ui/MetaBlock.java" />
         <option value="$PROJECT_DIR$/src/ex/ui/MainList.java" />
         <option value="$PROJECT_DIR$/src/ex/methods/Requests.java" />
-        <option value="$PROJECT_DIR$/src/ex/ui/ControlPanel.java" />
         <option value="$PROJECT_DIR$/src/ex/MainWindowController.java" />
         <option value="$PROJECT_DIR$/src/ex/methods/HtmlParser.java" />
+        <option value="$PROJECT_DIR$/src/ex/ui/ControlPanel.java" />
       </list>
     </option>
   </component>
@@ -289,7 +269,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -434,8 +413,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -796,7 +776,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="26" width="1922" height="1056" extended-state="7" />
+    <frame x="-2" y="26" width="1922" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -815,7 +795,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23771368" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24038461" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -978,10 +958,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
           <caret line="40" column="22" lean-forward="false" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
-          <folding>
-            <element signature="e#768#769#0" expanded="false" />
-            <element signature="e#802#803#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1054,17 +1030,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Post.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="27" lean-forward="false" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ex/ui/MainList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
+        <state relative-caret-position="256">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
@@ -1074,7 +1042,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="176" column="18" lean-forward="false" selection-start-line="176" selection-start-column="18" selection-end-line="176" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1082,7 +1049,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1796">
           <caret line="649" column="18" lean-forward="false" selection-start-line="649" selection-start-column="18" selection-end-line="649" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1094,23 +1060,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/ui/ControlPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/ex/methods/HtmlParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="48" column="86" lean-forward="false" selection-start-line="48" selection-start-column="86" selection-end-line="48" selection-end-column="86" />
+        <state relative-caret-position="576">
+          <caret line="74" column="62" lean-forward="false" selection-start-line="74" selection-start-column="62" selection-end-line="74" selection-end-column="62" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#generateMessage#0;class#HtmlParser#0" expanded="false" />
+            <element signature="method#checkForAuthorizedAccess#0;class#HtmlParser#0" expanded="false" />
+            <element signature="method#checkForFilledWall#0;class#HtmlParser#0" expanded="false" />
+            <element signature="method#checkForGroupOpened#0;class#HtmlParser#0" expanded="false" />
+            <element signature="method#getFeedVisualComponents#0;class#HtmlParser#0" expanded="false" />
+            <element signature="method#deleteTrashBlocks#0;class#HtmlParser#0" expanded="false" />
+            <element signature="method#clearFeed#0;class#HtmlParser#0" expanded="false" />
+            <element signature="method#extractPosts#0;class#HtmlParser#0" expanded="false" />
+            <element signature="method#addPosts#0;class#HtmlParser#0" expanded="false" />
+            <element signature="method#addScripts#0;class#HtmlParser#0" expanded="false" />
+            <element signature="method#addPropertiesButtonToPost#0;class#HtmlParser#0" expanded="false" />
+            <element signature="method#getSource#0;class#HtmlParser#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ex/MainWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-72">
+        <state relative-caret-position="1280">
           <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
           <folding>
-            <element signature="e#2150#2981#0" expanded="true" />
-            <element signature="e#2980#2981#0" expanded="true" />
             <element signature="class#Bridge#0;class#MainWindowController#0" expanded="false" />
             <element signature="e#3310#3311#0" expanded="true" />
             <element signature="e#3359#3360#0" expanded="true" />
@@ -1121,22 +1096,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex/methods/HtmlParser.java">
+    <entry file="file://$PROJECT_DIR$/src/ex/obj/wall/Post.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="74" column="63" lean-forward="true" selection-start-line="74" selection-start-column="63" selection-end-line="74" selection-end-column="63" />
+        <state relative-caret-position="64">
+          <caret line="4" column="27" lean-forward="false" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex/ui/ControlPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
-            <element signature="method#generateMessage#0;class#HtmlParser#0" expanded="false" />
-            <element signature="method#checkForAuthorizedAccess#0;class#HtmlParser#0" expanded="false" />
-            <element signature="method#checkForGroupOpened#0;class#HtmlParser#0" expanded="false" />
-            <element signature="method#getFeedVisualComponents#0;class#HtmlParser#0" expanded="false" />
-            <element signature="method#deleteTrashBlocks#0;class#HtmlParser#0" expanded="false" />
-            <element signature="method#clearFeed#0;class#HtmlParser#0" expanded="false" />
-            <element signature="method#extractPosts#0;class#HtmlParser#0" expanded="false" />
-            <element signature="method#addPosts#0;class#HtmlParser#0" expanded="false" />
-            <element signature="method#addScripts#0;class#HtmlParser#0" expanded="false" />
-            <element signature="method#addPropertiesButtonToPost#0;class#HtmlParser#0" expanded="false" />
-            <element signature="method#getSource#0;class#HtmlParser#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

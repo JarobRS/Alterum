@@ -75,7 +75,6 @@ public class HtmlParser {
     private static boolean checkForFilledWall(String rawHtml) {
 
         Document doc = Jsoup.parse(rawHtml);
-
         return !Objects.equals(doc.body().getElementsByAttributeValue("class", "_post post page_block all own post_fixed").html(), "");
     }
 

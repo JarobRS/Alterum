@@ -2,7 +2,6 @@ package ex.ui;
 
 import ex.obj.subscriptions.VkSource;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -32,8 +31,8 @@ public class ControlPanel extends HBox {
     private HBox buildPanel(VkSource source) {
 
         HBox mainBox = new HBox();
-        VBox leftBlock = new VBox();
-        VBox rightBlock = new VBox();
+        HBox leftBlock = new HBox();
+        HBox rightBlock = new HBox();
         rightBlock.setMaxWidth(Double.MAX_VALUE);
 
         Label header = new Label(source.getName());
@@ -46,9 +45,12 @@ public class ControlPanel extends HBox {
         HBox.setHgrow(spacer, Priority.ALWAYS);
         HBox.setHgrow(mainBox, Priority.ALWAYS);
         VBox propertiesButton = new VBox();
+        VBox actionButton = new VBox();
+        ImageView actionIcon = new ImageView(new Image("ex/resources/plus-box-outline.png"));
         ImageView propertiesIcon = new ImageView(new Image("ex/resources/dots-vertical.png"));
+        actionButton.getChildren().addAll(actionIcon);
         propertiesButton.getChildren().addAll(propertiesIcon);
-        rightBlock.getChildren().addAll(propertiesButton);
+        rightBlock.getChildren().addAll(actionButton, propertiesButton);
 
         mainBox.setPadding(new Insets(10,13,10,13));
         mainBox.getChildren().addAll(leftBlock, spacer, rightBlock);
