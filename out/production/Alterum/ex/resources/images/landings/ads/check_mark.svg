@@ -1,0 +1,13 @@
+<svg width="72px" height="72px" viewBox="49 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <circle id="path-1" cx="36" cy="36" r="25"></circle>
+    <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="50" height="50" fill="white">
+      <use xlink:href="#path-1"></use>
+    </mask>
+  </defs>
+  <g id="Group-3-Copy-16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(49.000000, 0.000000)">
+    <rect id="Rectangle-183" x="0" y="0" width="72" height="72"></rect>
+    <use id="Oval" stroke="#6E8FB0" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
+    <polyline id="Path-2" stroke="#6E8FB0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="26 37 32 43 47 28"></polyline>
+  </g>
+</svg>

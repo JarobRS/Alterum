@@ -9140,25 +9140,6 @@ input[type=range].step_slider:focus::-ms-fill-upper {
 .big_wall_cards .post:first-child,.big_wall_phone_info .post:first-child {
  border-top:1px solid #e7e8ec
 }
-.wall_module .delete_post_wrap {
- position:relative;
- z-index:10
-}
-.wall_module .delete_post {
- height:11px;
- width:11px;
- padding-top:4px;
- position:absolute;
- right:0
-}
-.wall_module .delete_post div {
- background:url(/images/pics/statusx_op.gif) 0 0 no-repeat;
- opacity:0;
- filter:alpha(opacity=0);
- cursor:pointer;
- height:11px;
- width:11px
-}
 .wall_module .reply_actions_wrap {
  position:relative;
  z-index:10

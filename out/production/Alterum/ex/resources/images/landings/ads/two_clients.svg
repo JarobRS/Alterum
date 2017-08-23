@@ -1,0 +1,17 @@
+<svg width="73px" height="72px" viewBox="62 0 73 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <path d="M47.0133556,34 C51.4474124,34 55,30.4266667 55,26 C55,21.5733333 51.4474124,18 47.0133556,18 C42.5792988,18 39,21.5733333 39,26 C39,30.4266667 42.5792988,34 47.0133556,34 L47.0133556,34 Z M24.0133556,34 C19.5792988,34 16,30.4266667 16,26 C16,21.5733333 19.5792988,18 24.0133556,18 C28.4474124,18 32,21.5733333 32,26 C32,30.4266667 28.4474124,34 24.0133556,34 Z M8,47 C8,40.75 16.3478261,37 24,37 C31.6521739,37 40,40.75 40,47 L40,47.9998075 C40,50.2090079 38.2072328,52 35.9957423,52 L12.0042577,52 C9.78902751,52 8,50.2090528 8,47.9998075 L8,47 Z" id="path-1"></path>
+    <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="47" height="34" fill="white">
+      <use xlink:href="#path-1"></use>
+    </mask>
+    <path d="M44,50 L44,52 L38,52 L59.9944797,52 C62.2066675,52 64,50.2090079 64,47.9998075 L64,47 C64,40.75 55.6521739,37 48,37 C46.0557763,37 42.1090152,37.8346666 40.670651,38.1742333" id="path-3"></path>
+    <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="26" height="15" fill="white">
+      <use xlink:href="#path-3"></use>
+    </mask>
+  </defs>
+  <g id="Group" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(62.666667, 0.000000)">
+    <rect id="Rectangle-183" x="0" y="0" width="72" height="72"></rect>
+    <use id="Imported-Layers-Copy-6" stroke="#6E8FB0" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
+    <use id="Path-Copy-2" stroke="#6E8FB0" mask="url(#mask-4)" stroke-width="4" xlink:href="#path-3"></use>
+  </g>
+</svg>

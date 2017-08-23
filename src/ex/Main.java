@@ -9,6 +9,9 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    private Stage window;
+    private Scene sourceInfo;
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -16,12 +19,14 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("fxml/mainWindow.fxml"));
-        primaryStage.setMinWidth(1000);
-        primaryStage.setMinHeight(438);
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("resources/main.css").toExternalForm());
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("Alterum");
-        primaryStage.show();
+        window = primaryStage;
+        Scene mainScene = new Scene(root);
+
+        window.setMinWidth(1000);
+        window.setMinHeight(438);
+        mainScene.getStylesheets().add(getClass().getResource("resources/main.css").toExternalForm());
+        window.setScene(mainScene);
+        window.setTitle("Alterum");
+        window.show();
     }
 }

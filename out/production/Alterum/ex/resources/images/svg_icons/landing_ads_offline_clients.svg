@@ -1,0 +1,21 @@
+<svg width="72px" height="72px" viewBox="62 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <rect id="path-1" x="-4.03717464e-15" y="0" width="43" height="50" rx="3.40909091"></rect>
+    <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="43" height="50" fill="white">
+      <use xlink:href="#path-1"></use>
+    </mask>
+  </defs>
+  <g id="Group-3-Copy-23" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(62.000000, 0.000000)">
+    <rect id="Rectangle-183" x="0" y="0" width="72" height="72"></rect>
+    <g id="Group-4" transform="translate(14.000000, 11.000000)">
+      <use id="Rectangle-3-Copy-3" stroke="#6E8FB0" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
+      <ellipse id="Oval-2" fill="#6E8FB0" cx="11.3157895" cy="11.3636364" rx="3.39473684" ry="3.40909091"></ellipse>
+      <rect id="Rectangle-4" fill="#6E8FB0" x="7.92105263" y="20.4545455" width="27.1578947" height="2.27272727" rx="0.568181818"></rect>
+      <rect id="Rectangle-4-Copy-4" fill="#6E8FB0" x="18.1052632" y="10.2272727" width="6.78947368" height="2.27272727" rx="0.568181818"></rect>
+      <rect id="Rectangle-4-Copy-5" fill="#6E8FB0" x="27.1578947" y="10.2272727" width="5.65789474" height="2.27272727" rx="0.568181818"></rect>
+      <rect id="Rectangle-4-Copy" fill="#6E8FB0" x="7.92105263" y="26.1363636" width="27.1578947" height="2.27272727" rx="0.568181818"></rect>
+      <rect id="Rectangle-4-Copy-2" fill="#6E8FB0" x="7.92105263" y="31.8181818" width="27.1578947" height="2.27272727" rx="0.568181818"></rect>
+      <rect id="Rectangle-4-Copy-3" fill="#6E8FB0" x="7.92105263" y="37.5" width="15.8421053" height="2.27272727" rx="0.568181818"></rect>
+    </g>
+  </g>
+</svg>

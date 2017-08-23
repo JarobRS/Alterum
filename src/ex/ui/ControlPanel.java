@@ -31,7 +31,7 @@ public class ControlPanel extends HBox {
     private HBox buildPanel(VkSource source) {
 
         HBox mainBox = new HBox();
-        HBox leftBlock = new HBox();
+        VBox leftBlock = new VBox();
         HBox rightBlock = new HBox();
         rightBlock.setMaxWidth(Double.MAX_VALUE);
 

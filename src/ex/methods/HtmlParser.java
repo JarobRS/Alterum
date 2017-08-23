@@ -14,9 +14,14 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class HtmlParser {
 
@@ -25,30 +30,32 @@ public class HtmlParser {
         StringBuilder mainContent = new StringBuilder();
         String feed = getFeedVisualComponents(rawHtml);
 
-        if (checkForAuthorizedAccess(feed)) {
-            if (checkForFilledWall(feed)) {
-                if (checkForGroupOpened(feed)) {
-                    feed = deleteTrashBlocks(feed);
-                    List<Post> postList = extractPosts(feed);
-                    feed = clearFeed(feed);
-                    feed = addPosts(feed, postList);
-                    feed = addScripts(feed, rawHtml);
-                    mainContent.append(feed);
+        if (feed != null) {
+            if (checkForAuthorizedAccess(feed)) {
+                if (checkForFilledWall(feed)) {
+                    if (checkForGroupOpened(feed)) {
+                        feed = deleteTrashBlocks(feed);
+                        List<Post> postList = extractPosts(feed);
+                        feed = clearFeed(feed);
+                        feed = addPosts(feed, postList);
+                        feed = addScripts(feed, rawHtml);
+                        mainContent.append(feed);
+                        //System.out.println(mainContent.toString());
 
-                    return mainContent.toString();
-                } else {
-                    return generateMessage("Это закрытое сообщество", "К сожалению, закрытые сообщества для вас недоступны.");
-                }
+                        return mainContent.toString();
+                    } else
+                        return generateMessage("Это закрытое сообщество", "К сожалению, закрытые сообщества для вас недоступны.");
+                } else
+                    return generateMessage("На стене пока нет ни одной записи", "Возможно, они появятся позже.");
             } else
-                return generateMessage("На стене пока нет ни одной записи", "Возможно, они появятся позже.");
-        } else {
-            return generateMessage("Стена скрыта от неавторизованных пользвателей", "Похоже, владелец аккаунта запретил просмотр своей страницы неавторизованным пользователям.");
-        }
+                return generateMessage("Страница скрыта от неавторизованных пользвателей", "Похоже, владелец аккаунта запретил просмотр своей страницы неавторизованным пользователям.");
+        } else
+            return generateMessage("Страница недоступна", "Возможно, она заблокирована администрацией или вы указали некорректный запрос.");
     }
 
     private static String generateMessage(String header, String lore) {
 
-        String message = "<div class=\"page_block\"> " +
+        return "<div class=\"page_block\"> " +
                 " <div id=\"page_info_wrap\" class=\"page_info_wrap\">" +
                 "  <div id=\"profile_info\">" +
                 "   <div class=\"page_top\">" +
@@ -62,8 +69,6 @@ public class HtmlParser {
                 "  </div>" +
                 " </div>" +
                 "</div>";
-
-        return message;
     }
 
     private static boolean checkForAuthorizedAccess(String rawHtml) {
@@ -73,22 +78,23 @@ public class HtmlParser {
     }
 
     private static boolean checkForFilledWall(String rawHtml) {
-
         Document doc = Jsoup.parse(rawHtml);
-        return !Objects.equals(doc.body().getElementsByAttributeValue("class", "_post post page_block all own post_fixed").html(), "");
+
+        return Objects.equals(doc.body().getElementsByAttributeValue("class", "page_wall_no_posts").text(), "");
     }
 
     private static boolean checkForGroupOpened(String rawHtml) {
 
         Document doc = Jsoup.parse(rawHtml);
-        return Objects.equals(doc.body().getElementsByAttributeValue("class", "group_closed_text").text(), "");
+        return !Objects.equals(doc.body().getElementsByAttributeValue("class", "wall_module").html(), "");
     }
 
     private static String getFeedVisualComponents(String rawHtml) {
 
         Document doc = Jsoup.parse(rawHtml);
-        Element preWall = doc.body().getElementsByAttributeValue("class", "wide_column").first();
-
+        Element preWall = doc.body().getElementsByAttributeValue("class", "wide_column_wrap").first();
+        if (preWall == null)
+            return null;
         return preWall.html();
     }
 
@@ -149,7 +155,16 @@ public class HtmlParser {
         Document scripts = Jsoup.parse(rawHtml);
         Document mainContent = Jsoup.parse(feed);
 
-        mainContent.head().html(scripts.head().html() +
+        mainContent.head().html(scripts.head().html());
+
+        // добавление технических скриптов
+        try {
+            mainContent.head().html(mainContent.head().html() + "<script>" + new String(Files.readAllBytes(Paths.get("src/ex/resources/js/common.js"))) + "</script>");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        mainContent.head().html(mainContent.head().html() +
                 "<script language='javascript'> function callJfxOperations() {" +
                 "jfxOperations.saveToBookmarks();" +
                 "}</script>");
@@ -184,6 +199,8 @@ public class HtmlParser {
 
         if (!Objects.equals(source.getIconUrl(), "")
                 && !Objects.equals(source.getIconUrl(), "/images/deactivated_hid_100.gif")
+                && !Objects.equals(source.getIconUrl(), "/images/deactivated_100.png")
+                && !Objects.equals(source.getIconUrl(), "/images/camera_100.png")
                 && !Objects.equals(source.getIconUrl(), "/images/community_100.png")) {
             ImageView icon = new ImageView(source.getIconUrl());
             icon.setFitHeight(50);
