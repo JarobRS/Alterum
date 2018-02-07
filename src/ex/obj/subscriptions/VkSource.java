@@ -7,7 +7,7 @@ public class VkSource {
     private String name;
     private String iconUrl;
     private String lore;
-    private String domain;
+    private String url;
     private GridPane body;
 
     public void setName(String mName) {
@@ -34,12 +34,12 @@ public class VkSource {
         return this.lore;
     }
 
-    public void setDomain(String mDomain) {
-        this.domain = mDomain;
+    public void setUrl(String mUrl) {
+        this.url = mUrl;
     }
 
-    public String getDomain() {
-        return this.domain;
+    public String getUrl() {
+        return this.url;
     }
 
     public void setBody(GridPane mGridPane) {

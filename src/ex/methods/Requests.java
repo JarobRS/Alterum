@@ -17,14 +17,10 @@ import java.io.IOException;
 
 public class Requests {
 
-    public static String getDomainContent(String domain, Boolean useMobileVersion) {
+    // получение HTML кода страницы
+    public static String getPageContent(String url) {
 
         String responseHtml = null;
-        String api_url;
-        if (useMobileVersion)
-            api_url = "https://m.vk.com/";
-        else
-            api_url = "https://vk.com/";
 
         ConnectionKeepAliveStrategy myStrategy = (resp, context) -> {
             HeaderElementIterator it = new BasicHeaderElementIterator
@@ -46,7 +42,7 @@ public class Requests {
                 .setKeepAliveStrategy(myStrategy)
                 .build();
 
-        HttpPost httpPost = new HttpPost(api_url + domain);
+        HttpPost httpPost = new HttpPost(url);
         try {
             HttpResponse response = httpClient.execute(httpPost);
             responseHtml = EntityUtils.toString(response.getEntity());

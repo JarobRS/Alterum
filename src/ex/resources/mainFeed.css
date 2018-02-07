@@ -922,6 +922,11 @@ a.button_blue:hover,a.button_gray:hover,a.button_light_gray:hover,a.button_link:
 .button_big.flat_button {
  line-height:17px
 }
+.page_switcher.flat_button {
+ width:30%;
+ text-align:center;
+ white-space: nowrap;
+}
 .button_big_text.flat_button {
  font-size:14px;
  line-height:20px;

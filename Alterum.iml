@@ -34,9 +34,14 @@
     <orderEntry type="library" name="org.fxmisc.richtext:richtextfx:0.6.10" level="application" />
     <orderEntry type="library" name="org.jsoup:jsoup:1.10.3" level="application" />
     <orderEntry type="library" name="com.thoughtworks.xstream:xstream:1.4.10" level="application" />
-    <orderEntry type="library" name="org.eclipse.ecf:org.apache.httpcomponents.httpclient:4.5.2.v20170210-0925" level="application" />
-    <orderEntry type="library" name="org.eclipse.ecf:org.apache.httpcomponents.httpcore:4.4.6.v20170210-0925" level="application" />
-    <orderEntry type="library" name="org.eclipse.birt.runtime:org.apache.commons.logging:1.1.1.v201101211721" level="application" />
-    <orderEntry type="library" name="org.eclipse.ecf:org.apache.commons.codec:1.9.0.v20170208-1614" level="application" />
+    <orderEntry type="library" name="commons-cli-1.2" level="project" />
+    <orderEntry type="library" name="commons-codec-1.9" level="project" />
+    <orderEntry type="library" name="commons-collections4-4.1" level="project" />
+    <orderEntry type="library" name="commons-io-2.5" level="project" />
+    <orderEntry type="library" name="commons-lang3-3.5" level="project" />
+    <orderEntry type="library" name="commons-logging-1.2" level="project" />
+    <orderEntry type="library" name="httpclient-4.5.3" level="project" />
+    <orderEntry type="library" name="httpcore-4.4.6" level="project" />
+    <orderEntry type="library" name="httpmime-4.5.2" level="project" />
   </component>
 </module>

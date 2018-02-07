@@ -22,9 +22,10 @@ import netscape.javascript.JSObject;
 import org.controlsfx.control.textfield.CustomTextField;
 import org.controlsfx.control.textfield.TextFields;
 
-import java.io.File;
 import java.lang.reflect.Method;
 import java.util.*;
+
+import static ex.methods.HtmlParser.pageProcessing;
 
 public class MainWindowController {
     @FXML private CustomTextField mainInputField;
@@ -36,6 +37,9 @@ public class MainWindowController {
     private WebView webView;
 
     private static long lastKeyPressTime = 0L;
+
+    private String fullDomain = "https://vk.com/";
+    private String mobileDomain = "https://m.vk.com/";
 
     @FXML
     public void initialize() {
@@ -53,7 +57,7 @@ public class MainWindowController {
         fullSourceList = new ArrayList<>();
         addItemsToMainList(fullSourceList);
 
-        mainInputField.textProperty().addListener((observable, oldValue, newValue) -> {
+        mainInputField.textProperty().addListener((observable, oldValue, newValue) -> {                // строка поиска
             if (mainInputField.getText().length() > 4) {
                 lastKeyPressTime = System.currentTimeMillis();
                 int waitTime = 500;                                                  // задержка перед отправкой строки
@@ -63,11 +67,11 @@ public class MainWindowController {
                     public void run() {
                         if (lastKeyPressTime + waitTime <= System.currentTimeMillis()) {
                             Platform.runLater(() -> {
-                                String domain = Requests.getDomain(mainInputField.getText());
+                                String params = Requests.getDomain(mainInputField.getText());
                                 mainList.clear();
-                                if (searchDomainGlobally(domain))                                   // глобальный поиск
+                                if (params != null && searchGlobally(params))                       // глобальный поиск
                                     mainList.add(generateSeparator());
-                                searchDomainLocally(fullSourceList, mainInputField.getText());       // локальный поиск
+                                searchLocally(fullSourceList, mainInputField.getText());             // локальный поиск
                                 timer.cancel();
                             });
                         }
@@ -78,25 +82,48 @@ public class MainWindowController {
                 addItemsToMainList(fullSourceList);          // если запрос пустой, то показать пользовательский список
             }
         });
-
         setupClearButtonField(mainInputField);
     }
 
-
+    // связь между web-интерфейсом и приложением
     public class Bridge {
+        public void saveToBookmarks(int a) {
 
-        public void keyToggle() {
-            System.out.println("123");
+            System.out.println(a);
+        }
+
+        // догрузить старые посты
+        public void pageGoForward(String startFrom) {
+
+            String apiUrl = "https://vk.com/";
+            String rawHtml = Requests.getPageContent(apiUrl + "al_wall.php" +
+                    "?act=get_wall" +
+                    "&al=1" +
+                    "&offset=0" +
+                    "&owner_id=-76769609" +
+                    "&type=own" +
+                    "&wall_start_from=0");
+
+            rawHtml = rawHtml.substring(4);
+            String webPage = pageProcessing(rawHtml, false);
+            System.out.println(123);
+
+            /*webView.getEngine().executeScript(
+                    "var div = document.getElementById('page_wall_posts');" +
+                            "div.innerHTML += " + escapeHtml4(rawHtml));*/
+
+            webView.getEngine().loadContent(webPage);
         }
     }
 
-    private void loadWebContent(String domain) {
+    private void loadWebContent(String url) {
         Runnable task = () -> {
-            String response = Requests.getDomainContent(domain, false);
+            String rawHtml = Requests.getPageContent(url);
 
             Platform.runLater(() -> {
                 WebEngine webEngine = webView.getEngine();
                 Worker<Void> worker = webEngine.getLoadWorker();
+                System.setProperty("sun.net.http.allowRestrictedHeaders", "true");
 
                 worker.stateProperty().addListener((observable, oldValue, newValue) -> {
                     if (newValue == Worker.State.SUCCEEDED) {
@@ -107,7 +134,8 @@ public class MainWindowController {
 
                 webEngine.setJavaScriptEnabled(true);
                 webEngine.setUserStyleSheetLocation(getClass().getResource("resources/mainFeed.css").toString());
-                webView.getEngine().loadContent(HtmlParser.buildFeed(response));
+                String webPage = pageProcessing(rawHtml, true);
+                webView.getEngine().loadContent(webPage);
             });
             Thread.currentThread().interrupt();
         };
@@ -115,12 +143,12 @@ public class MainWindowController {
         thread.start();
     }
 
-    private boolean searchDomainGlobally(String domain) {
+    private boolean searchGlobally(String params) {
 
-        String response = Requests.getDomainContent(domain, true);
+        String response = Requests.getPageContent(mobileDomain + params);
 
         List<Object> sourceList = new ArrayList<>();
-        VkSource source = HtmlParser.getSource(response, domain);
+        VkSource source = HtmlParser.getSource(response, fullDomain + params);
         if (source != null) {
             sourceList.add(source);
             addItemsToMainList(sourceList);
@@ -144,7 +172,7 @@ public class MainWindowController {
         //
     }
 
-    private void searchDomainLocally(List<Object> fullList, String request) {
+    private void searchLocally(List<Object> fullList, String request) {
 
         request = request.toLowerCase().trim();
 
@@ -152,7 +180,7 @@ public class MainWindowController {
         for (Object item : fullList) {
             VkSource aSource = VkSource.class.cast(item);
             if (aSource.getName().toLowerCase().contains(request) ||
-                    aSource.getDomain().toLowerCase().contains(request) ||
+                    aSource.getUrl().toLowerCase().contains(request) ||
                     aSource.getLore().toLowerCase().contains(request))
                 filteredList.add(aSource);
         }
@@ -169,14 +197,17 @@ public class MainWindowController {
             addItemsToMainList(filteredList);
     }
 
+    // добавить элементы на левую панель
     private void addItemsToMainList(List<Object> items) {
 
         for (Object item : items) {
             if (item instanceof VkSource) {
                 VkSource aSource = VkSource.class.cast(item);
                 mainList.add(aSource.getBody());
+
+                // клик по элементу списка
                 aSource.getBody().setOnMouseClicked(e -> {
-                    loadWebContent(aSource.getDomain());
+                    loadWebContent(aSource.getUrl());
                     controlPanel.showMeta(aSource);
                 });
             } else

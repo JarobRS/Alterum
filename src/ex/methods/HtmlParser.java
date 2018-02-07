@@ -1,5 +1,6 @@
 package ex.methods;
 
+import ex.MainWindowController;
 import ex.obj.subscriptions.VkSource;
 import ex.obj.wall.Post;
 import javafx.geometry.Insets;
@@ -14,10 +15,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,170 +23,171 @@ import java.util.Scanner;
 
 public class HtmlParser {
 
-    public static String buildFeed(String rawHtml) {
-
-        StringBuilder mainContent = new StringBuilder();
-        String feed = getFeedVisualComponents(rawHtml);
-
-        if (feed != null) {
-            if (checkForAuthorizedAccess(feed)) {
-                if (checkForFilledWall(feed)) {
-                    if (checkForGroupOpened(feed)) {
-                        feed = deleteTrashBlocks(feed);
-                        List<Post> postList = extractPosts(feed);
-                        feed = clearFeed(feed);
-                        feed = addPosts(feed, postList);
-                        feed = addScripts(feed, rawHtml);
-                        mainContent.append(feed);
-                        //System.out.println(mainContent.toString());
-
-                        return mainContent.toString();
-                    } else
-                        return generateMessage("Это закрытое сообщество", "К сожалению, закрытые сообщества для вас недоступны.");
-                } else
-                    return generateMessage("На стене пока нет ни одной записи", "Возможно, они появятся позже.");
-            } else
-                return generateMessage("Страница скрыта от неавторизованных пользвателей", "Похоже, владелец аккаунта запретил просмотр своей страницы неавторизованным пользователям.");
-        } else
-            return generateMessage("Страница недоступна", "Возможно, она заблокирована администрацией или вы указали некорректный запрос.");
-    }
-
-    private static String generateMessage(String header, String lore) {
-
-        return "<div class=\"page_block\"> " +
-                " <div id=\"page_info_wrap\" class=\"page_info_wrap\">" +
-                "  <div id=\"profile_info\">" +
-                "   <div class=\"page_top\">" +
-                "    <div class=\"page_current_info\" id=\"page_current_info\">" +
-                header +
-                "    </div>" +
-                "   </div>" +
-                "   <h5 class=\"profile_deleted_text\">" +
-                lore +
-                "</h5>" +
-                "  </div>" +
-                " </div>" +
-                "</div>";
-    }
-
-    private static boolean checkForAuthorizedAccess(String rawHtml) {
-
-        Document doc = Jsoup.parse(rawHtml);
-        return Objects.equals(doc.body().getElementsByAttributeValue("class", "profile_deleted_text").html(), "");
-    }
-
-    private static boolean checkForFilledWall(String rawHtml) {
-        Document doc = Jsoup.parse(rawHtml);
-
-        return Objects.equals(doc.body().getElementsByAttributeValue("class", "page_wall_no_posts").text(), "");
-    }
-
-    private static boolean checkForGroupOpened(String rawHtml) {
-
-        Document doc = Jsoup.parse(rawHtml);
-        return !Objects.equals(doc.body().getElementsByAttributeValue("class", "wall_module").html(), "");
-    }
-
-    private static String getFeedVisualComponents(String rawHtml) {
-
-        Document doc = Jsoup.parse(rawHtml);
-        Element preWall = doc.body().getElementsByAttributeValue("class", "wide_column_wrap").first();
-        if (preWall == null)
+    private static String getFile(String filePath) {
+        InputStream data = MainWindowController.class.getResourceAsStream(filePath);
+        if (data == null) {
             return null;
-        return preWall.html();
+        }
+
+        Scanner s = new java.util.Scanner(data);
+        s.useDelimiter("\\A");
+        String content = s.hasNext() ? s.next() : "";
+        s.close();
+
+        assert content != null;
+        return content;
     }
 
-    private static String deleteTrashBlocks(String rawHtml) {
+    public static String pageProcessing(String rawHtml, boolean isFirst) {
 
-        Document doc = Jsoup.parse(rawHtml);
-        doc.body().getElementsByAttributeValue("class", "page_block").remove();
+        if (isFirst) {
+            // общая проверка на тип страницы
+            if (getFeedVisualComponents(rawHtml) == null)
+                return generateMessage("Страница недоступна", "Возможно, она заблокирована администрацией или вы указали некорректный запрос.");
 
-        return doc.html();
-    }
+            if (checkUnauthorized(rawHtml))
+                return generateMessage("Страница скрыта от неавторизованных пользвателей", "Похоже, владелец аккаунта запретил просмотр своей страницы неавторизованным пользователям.");
 
-    private static String clearFeed(String rawHtml) {
+            if (checkEmptyWall(rawHtml))
+                return generateMessage("На стене пока нет ни одной записи", "Возможно, они появятся позже.");
 
-        Document doc = Jsoup.parse(rawHtml);
-        doc.body().getElementsByAttributeValue("id", "page_wall_posts").html("");
+            if (checkGroupClosed(rawHtml))
+                return generateMessage("Это закрытое сообщество", "К сожалению, закрытые сообщества недоступны для анонимного просмотра.");
+        }
 
-        return doc.html();
+        // загрузка постов в определенный блок html
+        List<Post> postList = extractPosts(rawHtml);
+        String webPage = loadPosts(getFile("resources/html/FeedTemplate.html"), postList);
+
+        assert (webPage != null);
+        List<String> scriptList = new ArrayList<>();
+        scriptList.add("resources/js/jquery.js");
+        scriptList.add("resources/js/common.js");
+        scriptList.add("resources/js/page.js");
+        webPage = addScripts(webPage, scriptList);
+        webPage = modifyPage(webPage);
+
+        return webPage;
     }
 
     private static List<Post> extractPosts(String rawHtml) {
 
         List<Post> postList = new ArrayList<>();
         Document doc = Jsoup.parse(rawHtml);
-        Elements posts = doc.body().getElementsByAttributeValue("class", "wall_module");
+        Elements posts = doc.body().getElementsByAttributeValueContaining("class", "_post post page_block");
 
-        for (int i = 0; i < posts.get(0).children().size(); i++) {
+        for (int i = 0; i < posts.size(); i++) {
             Post post = new Post();
 
             try {
-                post.setAuthorID(posts.get(0).getElementsByAttributeValue("class", "author").get(i).text());
-                post.setContent(posts.get(0).child(i).html());
+                post.setAuthorID(posts.get(0).getElementsByAttributeValue("class", "author").get(0).text());
+                post.setContent(posts.get(i).outerHtml());
                 post.setDateTime(null);
 
                 postList.add(post);
-            } catch (Exception ignored) {
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
 
         return postList;
     }
 
-    private static String addPosts(String rawHtml, List<Post> postList) {
+    // генерация сообщения в общепринятом стиле
+    private static String generateMessage(String header, String lore) {
 
-        Document feed = Jsoup.parse(rawHtml);
-        Element div = feed.body().getElementsByAttributeValue("id", "page_wall_posts").get(0);
+        return "<div class=\"page_block\"><div id=\"page_info_wrap\" class=\"page_info_wrap\"><div id=\"profile_info\">" +
+                "<div class=\"page_top\"><div class=\"page_current_info\" id=\"page_current_info\">" +
+                header + "</div></div><h5 class=\"profile_deleted_text\">" +
+                lore + "</h5></div></div></div>";
+    }
 
+    // проверка на доступ к страничке
+    private static boolean checkUnauthorized(String rawHtml) {
+
+        Document doc = Jsoup.parse(rawHtml);
+        return !Objects.equals(doc.body().getElementsByAttributeValue("class", "profile_deleted_text").html(), "");
+    }
+
+    // проверка стены на заполненность
+    private static boolean checkEmptyWall(String rawHtml) {
+        Document doc = Jsoup.parse(rawHtml);
+
+        return !Objects.equals(doc.body().getElementsByAttributeValue("class", "page_wall_no_posts").text(), "");
+    }
+
+    // проверка, открыта ли группа для свободного просмотра
+    private static boolean checkGroupClosed(String rawHtml) {
+
+        Document doc = Jsoup.parse(rawHtml);
+        return Objects.equals(doc.body().getElementsByAttributeValue("class", "wall_module").html(), "");
+    }
+
+    // проверка наличия блока, способного вмещать посты
+    private static String getFeedVisualComponents(String rawHtml) {
+
+        Document doc = Jsoup.parse(rawHtml);
+        Element wall = doc.body().getElementsByAttributeValue("class", "wide_column_wrap").first();
+        if (wall == null)
+            return null;
+        return wall.html();
+    }
+
+    // парсинг сырого html и формирование списка постов в виде объекта-списка
+    private static String loadPosts(String placeholder, List<Post> postList) {
+
+        Document page = Jsoup.parse(placeholder);
+        Element postStack = page.body().getElementsByAttributeValueContaining("class", "wall_posts").get(0);
+
+        assert (postList.size() > 0);
         for (Post aPost : postList) {
-            String postDiv = Jsoup.parse(aPost.getContent()).html();
-            postDiv = addPropertiesButtonToPost(postDiv);
-            div.append(postDiv);
+            String postContent = Jsoup.parse(aPost.getContent()).html();
+            postContent = modifyPost(postContent);
+            postStack.append(postContent);
         }
 
-        return feed.html();
+        return page.html();
     }
 
-    private static String addScripts(String feed, String rawHtml) {
-
-        Document scripts = Jsoup.parse(rawHtml);
-        Document mainContent = Jsoup.parse(feed);
-
-        mainContent.head().html(scripts.head().html());
-
-        // добавление технических скриптов
-        try {
-            mainContent.head().html(mainContent.head().html() + "<script>" + new String(Files.readAllBytes(Paths.get("src/ex/resources/js/common.js"))) + "</script>");
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
-        mainContent.head().html(mainContent.head().html() +
-                "<script language='javascript'> function callJfxOperations() {" +
-                "jfxOperations.saveToBookmarks();" +
-                "}</script>");
-
-        return mainContent.html();
-    }
-
-    private static String addPropertiesButtonToPost(String postDiv) {
+    private static String modifyPost(String postDiv) {
 
         Document post = Jsoup.parse(postDiv);
         Elements div = post.body().getElementsByAttributeValue("class", "ui_actions_menu_wrap _ui_menu_wrap");
-        div.append("<button onclick='callJfxOperations();'>Сохранить в закладки</button>");
+        div.append("<button class='flat_button secondary_dark' id='wall_more_link' style='display: block;' onclick='loadingStarted = false;'>Сохранить в закладки</button>");
 
         return post.html();
     }
 
-    public static VkSource getSource(String rawHtml, String domain) {
+    private static String modifyPage(String pageHtml) {
+
+        Document page = Jsoup.parse(pageHtml);
+        Elements div = page.body().getElementsByAttributeValue("class", "wide_column_wrap");
+        div.append("<button class='page_switcher flat_button' onclick='pageGoBack();'>Назад</button>");
+        div.append("<button class='page_switcher flat_button' onclick='pageGoForward();'>Далее</button>");
+
+        return page.html();
+    }
+
+    // добавление скриптов из списка файлов
+    private static String addScripts(String rawHtml, List<String> scriptList) {
+
+        Document webPage = Jsoup.parse(rawHtml);
+        for (String script : scriptList) {
+            webPage.head().html(webPage.head().html() + "<script>" + getFile(script) + "</script>");
+        }
+
+        return webPage.html();
+    }
+
+    // определяем информационный источник(страница/группа/пр.) по коду страницы
+    public static VkSource getSource(String rawHtml, String url) {
 
         Document doc = Jsoup.parse(rawHtml);
         VkSource source = new VkSource();
 
         source.setName(doc.body().getElementsByAttributeValueContaining("class", "op_header").text());
         source.setLore(doc.body().getElementsByAttributeValue("class", "pp_status").text());
-        source.setDomain(domain);
+        source.setUrl(url);
         source.setIconUrl(doc.body().getElementsByAttributeValue("class", "pp_img").attr("src"));
 
         if (Objects.equals(source.getName(), ""))
@@ -197,6 +196,7 @@ public class HtmlParser {
         GridPane sourceBox = new GridPane();
         sourceBox.setId("sourceBox");
 
+        // если установлен аватар, то [...], иначе отрисовать собственный аватар
         if (!Objects.equals(source.getIconUrl(), "")
                 && !Objects.equals(source.getIconUrl(), "/images/deactivated_hid_100.gif")
                 && !Objects.equals(source.getIconUrl(), "/images/deactivated_100.png")
@@ -215,6 +215,7 @@ public class HtmlParser {
             sourceBox.add(customIcon, 0, 0);
         }
 
+        // добавление текстовой информации и финальное конструирование
         VBox desc = new VBox();
         desc.setPadding(new Insets(2,0,2,6));
         desc.getChildren().add(new Label(source.getName()));
